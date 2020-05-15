@@ -5,6 +5,7 @@ class Printer():
     def __init__(self, port=None, baud=None):
         self.port = port
         self.baud = baud
+        # self.id = "abvsads"
         self.printQueue = deque()
         self.printingThread = None
         self.listener = None

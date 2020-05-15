@@ -1,7 +1,7 @@
 import rpyc,pickle
 from printer import Printer as p
 from os import path
-class Pronter(object):
+class Printer(object):
     def __init__(self, name, printerType, printVolume):
         self.name = name
         self.printerType = printerType
@@ -22,18 +22,6 @@ class Pronter(object):
     def ternimal(self):
         #pronterface termnial
         pass
-
-
-def fooFunc():
-    return "foo"
-
-def test1Func():
-    return "test1"    
-def test2Func():
-    return "test2"
-def switchStateFunc(state):
-    pass
-
 
 printer = None
 def save():

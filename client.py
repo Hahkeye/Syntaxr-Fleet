@@ -1,75 +1,53 @@
-import rpyc,pickle
-from printer import Printer as p
-from os import path
-# class Pronter(object):
-#     def __init__(self, name, printerType, printVolume):
-#         self.name = name
-#         self.printerType = printerType
-#         self.printVolume = printVolume #x,y,z
-#         self.currentFile = None
-#         self.printer = p("USB6",112500)
-#         self.numberOfCommands=0
-#         self.precentDone=0
+#!/usr/bin/env python3
+import subprocess,socket,time,os
 
-#     def out(self):
-#         return "Name: ",self.name," Type: ",self.printerType," Volume: ",self.printVolume
+# IP and Port config
+HOST = 'localhost'
+PORT = 2986
+#
 
-#     def startPrint(self,gcode):
-#         #for line in gcode:
-            
-#         pass
-#         #pronterface to supply gcode commands
-#     def ternimal(self):
-#         #pronterface termnial
-#         pass
+#TODO setup config
+#TODO setup unquie printer id's
 
 
-# def fooFunc():
-#     return "foo"
 
-# def test1Func():
-#     return "test1"    
-# def test2Func():
-#     return "test2"
-# def switchStateFunc(state):
-#     pass
-
-
-# printer = None
-# def save():
-#     with open('printer.pickle', 'wb') as f:
-#         print("Saving")
-#         pickle.dump(printer, f, pickle.HIGHEST_PROTOCOL)
-
-# def load():
-#     if(path.exists("printer.pickle")):
-#         with open('printer.pickle','rb') as f:
-#             printer=pickle.load(f)
-#         return True
-#     return False
-
-# def new():#implement first time setup
-#     pass
-
-# def main():
-#     if not load():
-#         new()
-    
-
-#printer = Printer("Ender5","FDM",(120, 120, 120))
-c = rpyc.connect("localhost", 2986)
-dir(c.modules.sys.path)
-# states=[5]
-# states[0]="terminal"
-# states[1]="print"
-# states[2]="report"
-
-#print(rpyc.discover("MASTER"))
-# print(c.root.get_service_name())
-# print(c.root.get_service_aliases())
-# print(c.root.bar(test1Func))
-# #print(printer.out())
-# x = input("Save y/n?")
-
-# if x == "y":
-#     save()
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.connect((HOST, PORT))
+s.sendall('printShake'.encode())
+print("Connection to server created")
+while True:
+    data = s.recv(1024)
+    #print(data.decode())
+    decData=data.decode()
+    if decData[:4] == "port":
+        print("Swapping to assinged port ",data[5:])
+        s.shutdown(socket.SHUT_RDWR)
+        s.close()
+        time.sleep(4)
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        port = int(data[5:])
+        s.connect((HOST,port))
+    elif decData == "quit":
+        break
+    elif decData == "cd":
+        print("POGGERS")
+    elif decData[:12]=='transferFile':
+        print("transfering file to: ",decData[13:])
+        g = open(decData[13:], 'w')
+        while True:
+            l = s.recv(1024)
+            try:
+                if l.decode() == 'EOFX': 
+                    break
+            except: 
+                pass
+            g.write(l.decode())
+        g.close()
+        s.sendall('EOFX'.encode())
+    # else:
+    #     proc = subprocess.Popen(data.decode(), shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
+    #     stdoutput = proc.stdout.read() + proc.stderr.read()
+    #     stdoutput.decode()
+    #     s.sendall(stdoutput)
+    #s.sendall('EOFX'.encode())
+s.close()
