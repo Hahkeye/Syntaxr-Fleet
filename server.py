@@ -1,48 +1,56 @@
 #!/usr/bin/env python3
 import socket,os,time,threading,sys
+from helper import menu
 # Socket configuration
 
 HOST = '0.0.0.0'
 PORT = 2986
-MAIN = False
+LISTNER = None
 THRPRT = PORT
 CLIENTS = {}
-#TODO setup unquie printer id's
+HANDSHAKE = "printShake"
+PRINTERS = list()
+AVIABLE = list()
+#TODO setup unquie printer id's or unqiue connection id's from
+
+BAR = None
 
 
-def _main():
-    print("-----------------------------rEEEEEEEEEEEEEEEEEEEEEEEEEEOPEN")
-    global THRPRT, MAIN
+def _listner():
+    global THRPRT, MAIN, BAR
+    print("Attemping connection")
     c = socket.create_server(address=(HOST,PORT), family=socket.AF_INET)
     c.listen(1)
     sock, address = c.accept()
     data = sock.recv(1024)
-    print("\nData: ",data.decode())
-    if data.decode() == 'printShake':
-        print("new incomiing connection")
+    #print("\nData: ",data.decode())
+    if data.decode() == HANDSHAKE:
+        print("printer connecting")
+        print("port hand off")
+        #print("new incomiing connection")
         THRPRT += 1
+        #Worker hand off
         sock.sendall("port {0}".format(THRPRT).encode())
+        print("worker hand off")
         workThread = threading.Thread(name='workerThread', target=_clientHandler, args=(HOST, THRPRT), daemon=True)
         workThread.start()
         time.sleep(1)
+        #print("refreshing lisnter")
+        #_refresh()
         sock.shutdown(socket.SHUT_RDWR)
-        print("Closeing scoket")
         sock.close()
-        print("setting main")
-        MAIN = False
         sys.exit()
+       
 
-def _clientHandler(host,port):
+def _clientHandler(host, port):
     global CLIENTS
     try:
-        print("Spinning off client thread")
-        print("Binding client to: ",host)
-        print("Binding client to port: ",port)
         client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         client.bind((host, port))
         client.listen(1)
         sock, address = client.accept()
         CLIENTS[address[1]] = sock
+        _refresh()
         while True:
             try:
                 data= sock.recv(1024)
@@ -50,19 +58,26 @@ def _clientHandler(host,port):
                 _kill(sock,address)
                 sys.exit()
         
-        print("Exiting client handler. ",port)
+        #print("Exiting client handler. ",port)
         if data != "EOFX" or data!='':
-            print("Client ",host[0],": ",data)
+            print("Client ", host[0], ": ", data)
     except:
         _kill(sock,address)
         sys.exit()
 
-def _kill(scoket,address):
+def _kill(scoket, address):
     global CLIENTS
     if CLIENTS.get(address):
         CLIENTS[address].shutdown(socket.SHUT_RDWR)
         CLIENTS[address].close()
         CLIENTS.pop(address)
+def _refresh():
+    print("refreshing listner")
+    global LISTNER
+    menu(CLIENTS)
+    LISTNER = threading.Thread(name='listner', target=_listner, daemon=True)
+    LISTNER.start()
+
 
 def fileTransfer(sock, file):
     try:
@@ -76,36 +91,22 @@ def fileTransfer(sock, file):
     except:
         return "Upload failed"
 
-def menu():
-    print("THREADS ACTIVE: ",threading.active_count())
-    print("Threads: ",threading.enumerate())
-    print("\nClients: ")
-    print(CLIENTS)
-    print("------------------------------------")
-    print("Exit: 0")
-    print("Select: 1")
+#BAR = threading.Barrier(1,_listner())
 while True:
-    if MAIN is False:
-        MAIN = threading.Thread(name='main', target=_main, daemon=True)
-        MAIN.start()
-        MAIN = True
-    
-    menu()
-    command = input("\nEnter command: ")
-    if int(command) == 0:
+    if LISTNER is None:
+        print("First time start of listener")
+        _refresh()
+    menu(CLIENTS)
+
+    choice = input(": ")
+    if choice == "1":
+        choice2 = input("Enter id: ")
+        choice3 = input("enter Command: ")
+        CLIENTS[int(choice2)].sendall(choice3.encode())
+    else:
         sys.exit()
-    elif int(command) == 2:
-        print(CLIENTS)
-    elif int(command) == 1:
-        selection = input("Enter the ip of the client")
-        selected = CLIENTS.get(int(selection))
-        print("selecing client: ",selected)
-        selcmd = input("Enter command:")
-        if selcmd == 'cd':
-            selected.sendall(selcmd.encode())
-            pass
-        elif selcmd[:12] == 'transferFile':
-            print("attemping to transfer file")
-            selected.send(selcmd.encode())
-            print(fileTransfer(selected, str(selcmd[13:])))
-        
+
+# elif selcmd[:12] == 'transferFile':
+#             print("attemping to transfer file")
+#             selected.send(selcmd.encode())
+#             print(fileTransfer(selected, str(selcmd[13:])))

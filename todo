@@ -2,3 +2,11 @@ GUI in wxPython  https://wxpython.org/pages/overview/#hello-world
 Web in Flask   https://flask.palletsprojects.com/en/1.1.x/installation/#install-create-env
 Use pickle to serlize client
 
+socketServer:
+deals with clients and respected sockets 
+socketClient:
+needs to except jobs from the socketServer
+needs to pause/stop/resume from the socketServer
+needs to tell the server when its done
+
+
