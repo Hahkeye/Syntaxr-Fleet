@@ -15,16 +15,17 @@ class Printer():
         self.lineNumber = 0
         self.totalLines = 0
         self.connection = None
-        self.bedTemp=None
-        self.exTemp=None
+        self.bedTemp = None
+        self.exTemp = None
         #self.connect(port,baud)
 
     def connect(self):
         try:
             self.connection = serial.Serial(port=self.port,
                                             baudrate=self.baud, timeout=0.25, parity=serial.PARITY_ODD)
-        except serial.SerialException as e:
-            print("Could not connect ", e)
+        #except serial.SerialException as e:
+        except:
+            print("Could not connect to the printer, please make sure its connected.")
             self.alive = False
         self.alive = True
 
@@ -61,6 +62,7 @@ class Printer():
         return True
 
     def pause(self):
+        self.execute("M600 X0 Y0")
         self.printing = False
         self.printingPause = True
         self.printingThread.join()
@@ -74,30 +76,41 @@ class Printer():
     def progress(self):
         return self.lineNumber/self.totalLines
 
+    def status(self):
+        return (self.printing, self.bedTemp, self.exTemp)
 
-#Rework send command to include checksum
-    def _send(self,command):
+
+#rework to support wifis
+    def _send(self, command):
         command = "{0}*{1}\n".format(command, functools.reduce(lambda x, y: x ^ y, map(ord, command)))
-        print("SEND:", command)
+        #print("SEND:", command)
         self.connection.write(bytes(command, 'utf-8'))
         self.lineNumber += 1
 
     def _readLine(self):
-        return str(self.connection.readline())
+        return str(self.connection.readline().decode())
         #pass
     def _listen(self):
         while self.connection.is_open:
-            line = self._readLine()
-            if line != "b''":
+            line = self._readLine().split(" ")            
+            if len(line) > 1:
+                print(line)
                 self.needCommand = True
-                print("RECIVED: ", line[2:len(line)-3])
+                self.exTemp = line[2][1:]
+                self.bedTemp = line[3][1:-2].strip()
+                print("RECIVED: ", line)
 
     def _print(self):
-        while len(self.printQueue)!=0:
+        while len(self.printQueue) != 0:
             time.sleep(.001)
             if self.needCommand: #need to call finish when its over
                 self.needCommand = False
                 self._send(self.printQueue.popleft())
                 #self
+        self.printing = False
+        # self.printingThread.join()
+        self.printingThread = None
+        print("Done printing")
+        
 
 #TODO: Need to close the thread when its done and overall fool proof it.

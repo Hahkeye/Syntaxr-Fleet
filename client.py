@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import subprocess,socket,time,os,sys,printer,clientSocket,threading
+import subprocess,socket,time,os,sys,printer,clientSocket,threading,pickle,json
 
 # IP and Port config
 HOST = 'localhost'
@@ -19,10 +19,11 @@ BUAD = 115200
 
 class Printer(object):
     def __init__(self, name, ptype, volume=(0, 0, 0)):
-        self.name=name
-        self.ptype=ptype
-        self.volume=volume
-        self.id=42
+        self.name = name
+        self.ptype = ptype
+        self.volume = volume
+        self.idle = True
+        self.id = 42
         self.taskMaster = clientSocket.talk(HOST, PORT)
         try:
             self.printLink = printer.Printer(PPORT, BUAD)
@@ -30,34 +31,38 @@ class Printer(object):
             print("Failed to start printer connection will try again when its important")
 
     def main(self):
-        try:
-            self.taskMaster.connect()
-            #time.sleep(10)
-        except:
-            print("Failed to connect to host, please make sure host is runing")
-            sys.exit()
-        #self.taskMaster.connect()
-        self.printLink.connect()
-        while self.printLink.alive:
-        #while True:
-            print(threading.enumerate())
-            if self.taskMaster.check():
-                task = self.taskMaster.getMsg()
-                if task[:10] == "startPrint":
-                    target = task[11:]
-                    print("starting task: ",target)
-                    # try:
-                    #     if os.path.exists("{0}".format(target)):#change this to linux
-                    #         print(self.printLink.start("{0}".format(target)))#change to prints file "prints\{0}".format(target)
-                    # except:
-                    #     print("specified file not found")
-                    print(self.printLink.start("C:\\Users\\reali\source\\repos\\Syntaxr-Fleet\\{0}".format(target)))#change to prints file "prints\{0}".format(target)
+        while True: #make sure it cant do anything with out having a connecto to the host and the printer
+            try:
+                if not self.printLink.alive: self.printLink.connect()
+            except:
+                print("Failed To connect to printer, please check usb connection")
+            try:
+                if not self.taskMaster.alive: self.taskMaster.connect()
+            except:
+                #print(self.taskMaster)
+                print("Failed to connect to host, please make sure host is runing")
+            time.sleep(5)
+            #while self.taskMaster.alive:
+            while self.taskmaster.alive and self.printLink.alive:
+                if not self.taskMaster.alive:
+                    print("Exiting beacause lost host link")
+                    break
+                self.idle = self.printLink.printing
+                if self.taskMaster.check():
+                    task = self.taskMaster.getMsg()
+                    if task[:10] == "startPrint":
+                        target = task[11:]
+                        # try:
+                        #     if os.path.exists("{0}".format(target)):#change this to linux
+                        #         print(self.printLink.start("{0}".format(target)))#change to prints file "prints\{0}".format(target)
+                        # except:
+                        #     print("specified file not found")
+                        #self.idle = False
+                        print(self.printLink.start("C:\\Users\\reali\source\\repos\\Syntaxr-Fleet\\{0}".format(target)))#change to prints file "prints\{0}".format(target)
+                    elif task[:6] == "status":
+                        self.taskMaster.send("status"+json.dumps(self.printLink.status()))
 
-            time.sleep(7)
-            print(self.printLink.progress())
 
-
-            #x=input('asdasda')
-
-p = Printer("TestPrinter","FDM",(120, 120, 120))
-p.main()
+if __name__ == "__main__":
+    p = Printer("TestPrinter", "FDM", (120, 120, 120))
+    p.main()

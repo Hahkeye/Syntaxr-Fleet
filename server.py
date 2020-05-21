@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import socket,os,time,threading,sys
+import socket,os,time,threading,sys,pickle,json
 from helper import menu
 # Socket configuration
 
@@ -19,7 +19,7 @@ BAR = None
 def _listner():
     global THRPRT, MAIN, BAR
     print("Attemping connection")
-    c = socket.create_server(address=(HOST,PORT), family=socket.AF_INET)
+    c = socket.create_server(address=(HOST, PORT), family=socket.AF_INET)
     c.listen(1)
     sock, address = c.accept()
     data = sock.recv(1024)
@@ -53,24 +53,31 @@ def _clientHandler(host, port):
         _refresh()
         while True:
             try:
-                data= sock.recv(1024)
+                data = sock.recv(1024)
+                data = data.decode()
             except:
-                _kill(sock,address)
+                _kill(address[1])
                 sys.exit()
+            #print("recived from client: ", data[6:], " lenght: ", len(data))
+            if data[:6] == "status":
+                stat = json.loads(data[6:])
+                print("status recieved:", stat[0])
+
         
         #print("Exiting client handler. ",port)
         if data != "EOFX" or data!='':
             print("Client ", host[0], ": ", data)
     except:
-        _kill(sock,address)
+        _kill(address)
         sys.exit()
 
-def _kill(scoket, address):
+def _kill(address):
     global CLIENTS
     if CLIENTS.get(address):
         CLIENTS[address].shutdown(socket.SHUT_RDWR)
         CLIENTS[address].close()
         CLIENTS.pop(address)
+    menu(CLIENTS)
 def _refresh():
     print("refreshing listner")
     global LISTNER
@@ -103,8 +110,10 @@ while True:
         choice2 = input("Enter id: ")
         choice3 = input("enter Command: ")
         CLIENTS[int(choice2)].sendall(choice3.encode())
-    else:
-        sys.exit()
+    if choice == "2":
+        choice2 = input("Enter id: ")
+        CLIENTS[int(choice2)]
+        #sys.exit()
 
 # elif selcmd[:12] == 'transferFile':
 #             print("attemping to transfer file")

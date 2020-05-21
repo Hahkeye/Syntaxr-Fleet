@@ -9,4 +9,6 @@ needs to except jobs from the socketServer
 needs to pause/stop/resume from the socketServer
 needs to tell the server when its done
 
+need to make the client on the server to have more detials ie. statuse temps current pirnt if so
+
 
