@@ -7,11 +7,12 @@ class talk(object):
         self.hostIp = ip
         self.port = port
         self.last = None
-        self.new = None
+        #self.new = None
         self.alive = False
     def getMsg(self):
         try:
-            return self.socket.recv(1024).decode()
+            data = self.socket.recv(1024).decode()
+            return data
         except ConnectionResetError as e:
             self.socket.shutdown(socket.SHUT_RDWR)
             self.socket.close()
@@ -36,13 +37,6 @@ class talk(object):
         time.sleep(2)
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.socket.connect((self.hostIp, int(data[5:])))
-    def check(self):
-        data = self.getMsg()
-        if data != self.last:
-            self.new = data
-            self.last = self.new
-            return True
-        return False
     def send(self, msg):
         self.socket.sendall(msg.encode())
     def disconnect(self):

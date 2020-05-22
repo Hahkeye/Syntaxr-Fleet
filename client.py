@@ -39,18 +39,16 @@ class Printer(object):
             try:
                 if not self.taskMaster.alive: self.taskMaster.connect()
             except:
-                #print(self.taskMaster)
                 print("Failed to connect to host, please make sure host is runing")
             time.sleep(5)
             #while self.taskMaster.alive:
-            while self.taskmaster.alive and self.printLink.alive:
-                if not self.taskMaster.alive:
-                    print("Exiting beacause lost host link")
-                    break
+            while self.taskMaster.alive and self.printLink.alive:
                 self.idle = self.printLink.printing
-                if self.taskMaster.check():
-                    task = self.taskMaster.getMsg()
+                task = self.taskMaster.getMsg()
+                if task is not None:
+                    print("New message recieved from master: ",task)
                     if task[:10] == "startPrint":
+                        print("Starting Print")
                         target = task[11:]
                         # try:
                         #     if os.path.exists("{0}".format(target)):#change this to linux
@@ -60,9 +58,13 @@ class Printer(object):
                         #self.idle = False
                         print(self.printLink.start("C:\\Users\\reali\source\\repos\\Syntaxr-Fleet\\{0}".format(target)))#change to prints file "prints\{0}".format(target)
                     elif task[:6] == "status":
-                        self.taskMaster.send("status"+json.dumps(self.printLink.status()))
-
-
+                        print("Sending status")
+                        self.taskMaster.send("status "+json.dumps(self.printLink.status()))
+                    elif task[:5] == "pause":
+                        print("Pausing print")
+                        self.printLink.pause()
+                    task = None
+                #time.sleep(1)
 if __name__ == "__main__":
     p = Printer("TestPrinter", "FDM", (120, 120, 120))
     p.main()

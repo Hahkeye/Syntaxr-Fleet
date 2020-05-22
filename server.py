@@ -23,20 +23,15 @@ def _listner():
     c.listen(1)
     sock, address = c.accept()
     data = sock.recv(1024)
-    #print("\nData: ",data.decode())
     if data.decode() == HANDSHAKE:
         print("printer connecting")
         print("port hand off")
-        #print("new incomiing connection")
         THRPRT += 1
-        #Worker hand off
         sock.sendall("port {0}".format(THRPRT).encode())
         print("worker hand off")
         workThread = threading.Thread(name='workerThread', target=_clientHandler, args=(HOST, THRPRT), daemon=True)
         workThread.start()
         time.sleep(1)
-        #print("refreshing lisnter")
-        #_refresh()
         sock.shutdown(socket.SHUT_RDWR)
         sock.close()
         sys.exit()
@@ -49,7 +44,7 @@ def _clientHandler(host, port):
         client.bind((host, port))
         client.listen(1)
         sock, address = client.accept()
-        CLIENTS[address[1]] = sock
+        CLIENTS[address[1]] = (sock,False)
         _refresh()
         while True:
             try:
@@ -58,15 +53,12 @@ def _clientHandler(host, port):
             except:
                 _kill(address[1])
                 sys.exit()
-            #print("recived from client: ", data[6:], " lenght: ", len(data))
+            print("data from client reived: ", data)
             if data[:6] == "status":
-                stat = json.loads(data[6:])
+                stat = json.loads(data[7:])
                 print("status recieved:", stat[0])
-
-        
-        #print("Exiting client handler. ",port)
-        if data != "EOFX" or data!='':
-            print("Client ", host[0], ": ", data)
+            if data != "EOFX" or data != '':
+                print("Client ", host[0], ": ", data)
     except:
         _kill(address)
         sys.exit()
@@ -98,7 +90,6 @@ def fileTransfer(sock, file):
     except:
         return "Upload failed"
 
-#BAR = threading.Barrier(1,_listner())
 while True:
     if LISTNER is None:
         print("First time start of listener")
@@ -113,8 +104,6 @@ while True:
     if choice == "2":
         choice2 = input("Enter id: ")
         CLIENTS[int(choice2)]
-        #sys.exit()
-
 # elif selcmd[:12] == 'transferFile':
 #             print("attemping to transfer file")
 #             selected.send(selcmd.encode())
