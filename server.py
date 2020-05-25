@@ -7,45 +7,61 @@ HOST = '0.0.0.0'
 PORT = 2986
 LISTNER = None
 THRPRT = PORT
-CLIENTS = {}
+CLIENTS = list()
 HANDSHAKE = "printShake"
 PRINTERS = list()
 AVIABLE = list()
 #TODO setup unquie printer id's or unqiue connection id's from
 
-BAR = None
+
+class Client(object):
+    def __init__(self, sock, add, name = None, drive = None, volume = (0,0,0)):
+        self.socket = sock
+        self.address = add
+        self.name = name
+        self.drive = drive
+        self.volume = volume
+        self.status = (False, None, None)
+    def setStatus(self, stat):
+        self.status = stat
+    def string(self):
+        return "{0} {1} {2}".format(self.name,self.drive,self.volume)
+
+
 
 
 def _listner():
-    global THRPRT, MAIN, BAR
+    global THRPRT
     print("Attemping connection")
     c = socket.create_server(address=(HOST, PORT), family=socket.AF_INET)
     c.listen(1)
     sock, address = c.accept()
-    data = sock.recv(1024)
-    if data.decode() == HANDSHAKE:
+    data = sock.recv(1024).decode()
+    print("DATA recived: ", data)
+    if data[:10] == HANDSHAKE:
         print("printer connecting")
-        print("port hand off")
         THRPRT += 1
+        print("Swaping to port ", THRPRT)
         sock.sendall("port {0}".format(THRPRT).encode())
-        print("worker hand off")
-        workThread = threading.Thread(name='workerThread', target=_clientHandler, args=(HOST, THRPRT), daemon=True)
-        workThread.start()
+        details = json.loads(data[10:])
+        clientThread = threading.Thread(name='clientHandling', target=_clientHandler, args=(HOST, THRPRT, details), daemon=True)
+        clientThread.start()
         time.sleep(1)
         sock.shutdown(socket.SHUT_RDWR)
         sock.close()
         sys.exit()
        
-
-def _clientHandler(host, port):
-    global CLIENTS
+def _clientHandler(host, port, details):
+    #global CLIENTS, AVIABLE
     try:
         client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         client.bind((host, port))
         client.listen(1)
         sock, address = client.accept()
-        CLIENTS[address[1]] = (sock,False)
-        _refresh()
+        c = Client(sock, address, details[0], details[1], details[2])
+        CLIENTS.append(c)
+        sock.sendall("status".encode())
+        menu(CLIENTS, AVIABLE)
         while True:
             try:
                 data = sock.recv(1024)
@@ -57,23 +73,25 @@ def _clientHandler(host, port):
             if data[:6] == "status":
                 stat = json.loads(data[7:])
                 print("status recieved:", stat[0])
-            if data != "EOFX" or data != '':
-                print("Client ", host[0], ": ", data)
+                c.status = stat
+                if c.status[0] is False:
+                    AVIABLE.append(c)
+                #menu(CLIENTS, AVIABLE)
+            # if data != "EOFX" or data != '':
+            #     print("Client ", host[0], ": ", data)
     except:
         _kill(address)
         sys.exit()
 
-def _kill(address):
-    global CLIENTS
-    if CLIENTS.get(address):
-        CLIENTS[address].shutdown(socket.SHUT_RDWR)
-        CLIENTS[address].close()
-        CLIENTS.pop(address)
-    menu(CLIENTS)
+def _kill(client):
+    print("Killing a client")
+    if CLIENTS.index(client):
+        CLIENTS[CLIENTS.index(client)].shutdown(socket.SHUT_RDWR)
+        CLIENTS[CLIENTS.index(client)].close()
+        CLIENTS.pop(client)
+    menu(CLIENTS, AVIABLE)
 def _refresh():
     print("refreshing listner")
-    global LISTNER
-    menu(CLIENTS)
     LISTNER = threading.Thread(name='listner', target=_listner, daemon=True)
     LISTNER.start()
 
@@ -94,13 +112,12 @@ while True:
     if LISTNER is None:
         print("First time start of listener")
         _refresh()
-    menu(CLIENTS)
-
+    menu(CLIENTS, AVIABLE)
     choice = input(": ")
     if choice == "1":
         choice2 = input("Enter id: ")
         choice3 = input("enter Command: ")
-        CLIENTS[int(choice2)].sendall(choice3.encode())
+        CLIENTS[int(choice2)].socket.sendall(choice3.encode())
     if choice == "2":
         choice2 = input("Enter id: ")
         CLIENTS[int(choice2)]

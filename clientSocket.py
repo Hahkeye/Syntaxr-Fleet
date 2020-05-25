@@ -7,7 +7,6 @@ class talk(object):
         self.hostIp = ip
         self.port = port
         self.last = None
-        #self.new = None
         self.alive = False
     def getMsg(self):
         try:
@@ -18,10 +17,10 @@ class talk(object):
             self.socket.close()
             self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             self.alive = False
-    def connect(self):#Connects to server and does port nogetiation to its correct port
+    def connect(self, info):#Connects to server and does port nogetiation to its correct port
         try:
             self.socket.connect((self.hostIp, self.port))
-            self.socket.sendall('printShake'.encode())
+            self.socket.sendall('printShake {0}'.format(info).encode())
             self.alive = True
         except socket.error as e:
             self.socket.shutdown(socket.SHUT_RDWR)

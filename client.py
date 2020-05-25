@@ -32,18 +32,18 @@ class Printer(object):
 
     def main(self):
         while True: #make sure it cant do anything with out having a connecto to the host and the printer
+            # try:
+            #     if not self.printLink.alive: self.printLink.connect()
+            # except:
+            #     print("Failed To connect to printer, please check usb connection")
             try:
-                if not self.printLink.alive: self.printLink.connect()
-            except:
-                print("Failed To connect to printer, please check usb connection")
-            try:
-                if not self.taskMaster.alive: self.taskMaster.connect()
+                if not self.taskMaster.alive: self.taskMaster.connect(json.dumps((self.name, self.ptype, self.volume)))
             except:
                 print("Failed to connect to host, please make sure host is runing")
             time.sleep(5)
-            #while self.taskMaster.alive:
-            while self.taskMaster.alive and self.printLink.alive:
-                self.idle = self.printLink.printing
+            while True:
+            #while self.taskMaster.alive and self.printLink.alive:
+                #self.idle = self.printLink.printing
                 task = self.taskMaster.getMsg()
                 if task is not None:
                     print("New message recieved from master: ",task)
@@ -62,7 +62,10 @@ class Printer(object):
                         self.taskMaster.send("status "+json.dumps(self.printLink.status()))
                     elif task[:5] == "pause":
                         print("Pausing print")
-                        self.printLink.pause()
+                        #self.printLink.pause()
+                    elif task[:5] == "stop":
+                       #self.printLink.stop()
+                       print("stopping")
                     task = None
                 #time.sleep(1)
 if __name__ == "__main__":
