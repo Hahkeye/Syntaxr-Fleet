@@ -30,6 +30,17 @@ class Printer(object):
         except:
             print("Failed to start printer connection will try again when its important")
 
+    def status(self):
+        print("Sending status")
+        self.taskMaster.send("status "+json.dumps(self.printLink.status()))
+
+    def pause(self):
+        print("Pauseing print")
+        self.printLink.pause()
+
+    def stop(self):
+        print("stopping")
+
     def main(self):
         while True: #make sure it cant do anything with out having a connecto to the host and the printer
             # try:
@@ -40,7 +51,7 @@ class Printer(object):
                 if not self.taskMaster.alive: self.taskMaster.connect(json.dumps((self.name, self.ptype, self.volume)))
             except:
                 print("Failed to connect to host, please make sure host is runing")
-            time.sleep(5)
+            time.sleep(1)
             while True:
             #while self.taskMaster.alive and self.printLink.alive:
                 #self.idle = self.printLink.printing
@@ -58,14 +69,11 @@ class Printer(object):
                         #self.idle = False
                         print(self.printLink.start("C:\\Users\\reali\source\\repos\\Syntaxr-Fleet\\{0}".format(target)))#change to prints file "prints\{0}".format(target)
                     elif task[:6] == "status":
-                        print("Sending status")
-                        self.taskMaster.send("status "+json.dumps(self.printLink.status()))
+                        self.status()
                     elif task[:5] == "pause":
-                        print("Pausing print")
-                        #self.printLink.pause()
+                        self.pause()
                     elif task[:5] == "stop":
-                       #self.printLink.stop()
-                       print("stopping")
+                        self.stop()
                     task = None
                 #time.sleep(1)
 if __name__ == "__main__":

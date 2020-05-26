@@ -1,7 +1,9 @@
-import os,time
+import os,time, threading
 
 
 def menu(clients, free):
+    # print("\nNumber of threads: ",threading.activeCount())
+    # print("Threads: ",threading.enumerate(),"\n")
     print("Clients")
     print("----------------------------")
     if len(clients)==0: print("none")
