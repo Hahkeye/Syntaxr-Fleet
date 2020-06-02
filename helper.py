@@ -1,4 +1,4 @@
-import os,time, threading
+import os,time, threading, server1
 
 
 def menu(clients, free):
@@ -29,4 +29,8 @@ def menu(clients, free):
     print("\nOptions:\n")
     print("Select: 1")
     print("Disconnect: 2")
-    #print("Get Free Printers: 3")
+    #print("Get Free Printers: 3")]
+
+if __name__ == '__main__':
+    thread1 = threading.Thread(target=server1.main)
+    thread1.start()

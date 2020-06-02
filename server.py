@@ -24,16 +24,21 @@ class Client(object):
         self.status = (False, None, None)
     def setStatus(self, stat):
         self.status = stat
+    # def string(self):
+    #     return "{0} {1} {2} {3}".format(self.name, self.drive, self.volume, self.status)
     def string(self):
-        return "{0} {1} {2} {3}".format(self.name, self.drive, self.volume, self.status)
+        return "{0} Active:{1}".format(self.name,self.status[0])
+
 
 
 
 
 def _listner():
     global THRPRT,LISTNER
-    #print("Listner Starting")
+    print("Listner Starting")
     LISTNER = socket.create_server(address=(HOST, PORT), family=socket.AF_INET)
+    #LISTNER = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    #LISTNER.bind((HOST, PORT))
     LISTNER.listen(1)
     sock, address = LISTNER.accept()
     data = sock.recv(1024).decode()
@@ -49,11 +54,12 @@ def _listner():
         sock.shutdown(socket.SHUT_RDWR)
         sock.close()
         LISTNER = None
-        
-        
-        
-       
+    
+    
+    
+    
 def _clientHandler(host, port, details):
+    #time.sleep(.5)
     _refresh()
     try:
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -78,12 +84,12 @@ def _clientHandler(host, port, details):
                 c.status = stat
                 if c.status[0] is False:
                     AVIABLE.append(c)
-                menu(CLIENTS, AVIABLE)
+                #menu(CLIENTS, AVIABLE)
             # if data != "EOFX" or data != '':
             #     print("Client ", host[0], ": ", data)
     except:
         _kill(c)
-       # sys.exit()
+        # sys.exit()
 
 def _kill(client):
     print("Closing a client of sorts")
@@ -100,7 +106,7 @@ def _kill(client):
         AVIABLE.remove(client)
     except:
         pass
-    menu(CLIENTS, AVIABLE)
+    #menu(CLIENTS, AVIABLE)
 def _refresh():
     #print("refreshing listner")
     LISTNER = threading.Thread(name='listner', target=_listner, daemon=True)
@@ -119,26 +125,21 @@ def fileTransfer(sock, file):
     except:
         return "Upload failed"
 
-while True:
-    if LISTNER is None:
-        #print("First time start of listener")
-        _refresh()
-    
-    menu(CLIENTS, AVIABLE)
-    choice = input(": ")
-    #choice = 69
-    if choice == "1":
-        choice2 = input("Enter id: ")
-        choice3 = input("enter Command: ")
-        CLIENTS[int(choice2)].socket.sendall(choice3.encode())
-    if choice == "2":
-        choice2 = input("Enter id: ")
-        CLIENTS[int(choice2)]
-    if choice == "3":
-        menu(CLIENTS, AVIABLE)
-        print("CLIENTS:                         ",len(CLIENTS))
-        print("LISTNEr: ",LISTNER)
+def main():
+    global LISTNER
+    print("starting")
+    while True:
+        if LISTNER is None:
+            #time.sleep(5)
+            #print("First time start of listener")
+            #LISTNER = 5e
+            _refresh()
+        time.sleep(1)
+        #print(threading.enumerate())
+        
+
+#main()
 # elif selcmd[:12] == 'transferFile':
 #             print("attemping to transfer file")
 #             selected.send(selcmd.encode())
-#             print(fileTransfer(selected, str(selcmd[13:])))
+#             print(fileTransfer(selected, str(selcmSd[13:])))

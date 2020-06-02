@@ -77,5 +77,5 @@ class Printer(object):
                     task = None
                 #time.sleep(1)
 if __name__ == "__main__":
-    p = Printer("TestPrinter", "FDM", (120, 120, 120))
+    p = Printer("Ender5 Pro", "FDM", (120, 120, 120))
     p.main()
