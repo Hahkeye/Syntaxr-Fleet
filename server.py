@@ -15,22 +15,25 @@ AVIABLE = list()
 
 
 class Client(object):
-    def __init__(self, sock, add, name = None, drive = None, volume = (0,0,0)):
+    def __init__(self, sock, add, name=None, drive=None, volume=(0, 0, 0)):
         self.socket = sock
         self.address = add
         self.name = name
         self.drive = drive
         self.volume = volume
+        self.progress = (0, 0)
         self.status = (False, None, None)
     def setStatus(self, stat):
         self.status = stat
     # def string(self):
     #     return "{0} {1} {2} {3}".format(self.name, self.drive, self.volume, self.status)
     def string(self):
-        return "{0} Active:{1}".format(self.name,self.status[0])
-
-
-
+        return "{0} | Active:{1}".format(self.name, self.status[0])
+    def send(self, message):
+        self.socket.sendall(message.encode())
+        return "sent"
+    # def stop(self):
+    #     self.send("stop")
 
 
 def _listner():
@@ -77,11 +80,12 @@ def _clientHandler(host, port, details):
             except:
                 _kill(c)
                 break
-            #print("data from client reived: ", data)
+            print("data from client reived: ", data)
             if data[:6] == "status":
                 stat = json.loads(data[7:])
-                #print("status recieved:", stat[0])
-                c.status = stat
+                print("status recieved:", stat[0])
+                c.status = stat[0]
+                c.progress = stat[1]
                 if c.status[0] is False:
                     AVIABLE.append(c)
                 #menu(CLIENTS, AVIABLE)

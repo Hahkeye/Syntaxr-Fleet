@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>Printer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  </head>
+  <body>
+    <div class="container">
+        <h1> {{printer.string()}}</h1>
+        <hr>
+        <p>Current Line: {{printer.progress[0]}} Total Line Numbers: {{printer.progress[1]}}</p>
+        <p>E temp: {{printer.status[1]}}  B temp: {{printer.status[2]}}</p>
+        <form action="" method="post">
+          <input type="submit" value="Stop" name="stop">
+          <input type="submit" value="Pause" name="pause">
+          <input type="submit" value="Resume" name="resume">
+        </form>
+        <div>
+          
+        </div>
+        <hr>
+        <p><a href="/logout">Logout</a>               <a href="/dashboard">Back</a></p>
+    </div>
+  </body>
+</html>

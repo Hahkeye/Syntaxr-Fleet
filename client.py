@@ -32,14 +32,19 @@ class Printer(object):
 
     def status(self):
         print("Sending status")
-        self.taskMaster.send("status "+json.dumps(self.printLink.status()))
+        self.taskMaster.send("status "+json.dumps((self.printLink.status(),self.printLink.progress())))
 
     def pause(self):
         print("Pauseing print")
-        self.printLink.pause()
+        #self.printLink.pause()
 
     def stop(self):
-        print("stopping")
+        print("stopping")#this still needs to be impletmetned in printer.py
+        #self.printLink.stop()
+
+    def resume(self):
+        print("resuming")
+        #self.printLink.resume()
 
     def main(self):
         while True: #make sure it cant do anything with out having a connecto to the host and the printer
@@ -74,8 +79,10 @@ class Printer(object):
                         self.pause()
                     elif task[:5] == "stop":
                         self.stop()
+                    elif task[:6] == "resume":
+                        self.resume()
                     task = None
                 #time.sleep(1)
 if __name__ == "__main__":
     p = Printer("Ender5 Pro", "FDM", (120, 120, 120))
-    p.main()
+    p.main() 

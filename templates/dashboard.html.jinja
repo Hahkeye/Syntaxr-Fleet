@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title>Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="static/bootstrap.min.css" rel="stylesheet" media="screen"> -->
+    <style>
+      .button {
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
+
+      .button1 {background-color: #f54242;} /* Green */
+      .button2 {background-color: #42f563;} /* Blue */
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Printers                    Busy: {{ clients.__len__()-aviable.__len__() }} Free: {{ aviable.__len__() }}</h1>
+      <hr>
+      {% for client in clients %}
+        <p>{{'href=\'/printer/{}\''.format(clients.index(client))}}</p>
+        {% if not client.status[0] %}
+          <button class="button button1" onclick="{{'location.href=\'/printer/{}\''.format(clients.index(client))}}" >{{client.string()}}</button>
+          <!-- <button class="button button1" onclick="{{'href=\'/printer/{}\''.format(clients.index(client))}}" >{{client.string()}}</button> -->
+        {% else %}
+          <button class="button button2" onclick="{{'location.href=\'/printer/{}\''.format(clients.index(client))}}" >{{client.string()}}</button>
+        {% endif %}
+      {% endfor %}
+      <hr>
+      <p><a href="/logout">Logout</a></p>
+    </div>
+  </body>
+</html>

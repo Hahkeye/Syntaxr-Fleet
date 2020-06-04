@@ -74,7 +74,7 @@ class Printer():
         self.printingThread.start()
     
     def progress(self):
-        return self.lineNumber/self.totalLines
+        return (self.lineNumber, self.totalLines)
 
     def status(self):
         return (self.printing, self.bedTemp, self.exTemp)
