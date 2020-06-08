@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import subprocess,socket,time,os,sys,printer,clientSocket,threading,pickle,json
+import time,os,sys,printer,clientSocket,json
 
 # IP and Port config
 HOST = 'localhost'
@@ -23,7 +23,7 @@ class Printer(object):
         self.ptype = ptype
         self.volume = volume
         self.idle = True
-        self.id = 42
+        self.gcodes = list()
         self.taskMaster = clientSocket.talk(HOST, PORT)
         try:
             self.printLink = printer.Printer(PPORT, BUAD)
@@ -32,7 +32,8 @@ class Printer(object):
 
     def status(self):
         print("Sending status")
-        self.taskMaster.send("status "+json.dumps((self.printLink.status(),self.printLink.progress())))
+        #temp = (self.printLink.status,self.printLink.progress,self.prints())
+        self.taskMaster.send("status "+json.dumps((self.printLink.status(),self.printLink.progress(),self.prints())))
 
     def pause(self):
         print("Pauseing print")
@@ -46,6 +47,16 @@ class Printer(object):
         print("resuming")
         #self.printLink.resume()
 
+    def prints(self):
+        #print(os.getcwd())
+        self.gcodes = os.listdir("C:\\Users\\reali\source\\repos\\Syntaxr-Fleet\\printss")
+        return self.gcodes
+
+    def ftp(self, name):
+        if self.taskMaster.getFile(name):
+            self.status()
+        
+
     def main(self):
         while True: #make sure it cant do anything with out having a connecto to the host and the printer
             # try:
@@ -56,23 +67,27 @@ class Printer(object):
                 if not self.taskMaster.alive: self.taskMaster.connect(json.dumps((self.name, self.ptype, self.volume)))
             except:
                 print("Failed to connect to host, please make sure host is runing")
-            time.sleep(1)
-            while True:
+            #time.sleep(3)
+            # print("w")
+            #while True:
+            while self.taskMaster.alive:
             #while self.taskMaster.alive and self.printLink.alive:
                 #self.idle = self.printLink.printing
                 task = self.taskMaster.getMsg()
                 if task is not None:
-                    print("New message recieved from master: ",task)
+                    print("New message recieved from master: ", task)
+                    #time.sleep(5)
                     if task[:10] == "startPrint":
                         print("Starting Print")
                         target = task[11:]
+                        print(target)
                         # try:
                         #     if os.path.exists("{0}".format(target)):#change this to linux
                         #         print(self.printLink.start("{0}".format(target)))#change to prints file "prints\{0}".format(target)
                         # except:
                         #     print("specified file not found")
                         #self.idle = False
-                        print(self.printLink.start("C:\\Users\\reali\source\\repos\\Syntaxr-Fleet\\{0}".format(target)))#change to prints file "prints\{0}".format(target)
+                        #print(self.printLink.start("C:\\Users\\reali\source\\repos\\Syntaxr-Fleet\\{0}".format(target)))#change to prints file "prints\{0}".format(target)
                     elif task[:6] == "status":
                         self.status()
                     elif task[:5] == "pause":
@@ -81,6 +96,10 @@ class Printer(object):
                         self.stop()
                     elif task[:6] == "resume":
                         self.resume()
+                    elif task[:12] == "fileTransfer":
+                        self.ftp(task[12:])
+
+
                     task = None
                 #time.sleep(1)
 if __name__ == "__main__":

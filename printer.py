@@ -70,6 +70,7 @@ class Printer():
 
     def resume(self):
         self.printing = True
+        self.printingPause = False
         self.printingThread = threading.Thread(name="Printing Thread", target=self._print)
         self.printingThread.start()
     
@@ -77,7 +78,7 @@ class Printer():
         return (self.lineNumber, self.totalLines)
 
     def status(self):
-        return (self.printing, self.bedTemp, self.exTemp)
+        return (self.printing, self.bedTemp, self.exTemp, self.printingPause)
 
 
 #rework to support wifis

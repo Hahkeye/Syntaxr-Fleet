@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-import socket,os,time,threading,sys,pickle,json
-from helper import menu
+import socket, os, time, threading, sys, json, logging
 # Socket configuration
 
 HOST = '0.0.0.0'
@@ -21,8 +20,9 @@ class Client(object):
         self.name = name
         self.drive = drive
         self.volume = volume
+        self.gcodes = list()
         self.progress = (0, 0)
-        self.status = (False, None, None)
+        self.status = (False, None, None, False)
     def setStatus(self, stat):
         self.status = stat
     # def string(self):
@@ -34,20 +34,41 @@ class Client(object):
         return "sent"
     # def stop(self):
     #     self.send("stop")
+    def fileTransfer(self, file):
+        logging.info("Starting file transfer to {0}".format(self.name))
+        # try:
+        #     self.socket.sendall('fileTransfer {0}'.format(file))
+        #     time.sleep(1)
+        #     with open(file, 'rb') as f:
+        #         fileData = f.read()
+        #         self.socket.sendall(fileData)
+        #         time.sleep(1)
+        #         self.socket.sendall('EOFX'.encode())
+        #     f.close()
+        #     return "Upload complete"
+        # except:
+        #     return "Upload failed"
+        
+        self.socket.sendall('fileTransfer {0}'.format(file).encode())
+        time.sleep(1)
+        with open(file, 'rb') as f:
+            fileData = f.read()
+            self.socket.sendall(fileData)
+            time.sleep(1)
+            self.socket.sendall('EOFX'.encode())
+        f.close()
+        return "Upload complete"
 
 
 def _listner():
     global THRPRT,LISTNER
-    print("Listner Starting")
+    logging.info("Client Listener started.")
     LISTNER = socket.create_server(address=(HOST, PORT), family=socket.AF_INET)
-    #LISTNER = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    #LISTNER.bind((HOST, PORT))
-    LISTNER.listen(1)
     sock, address = LISTNER.accept()
     data = sock.recv(1024).decode()
     #print("DATA recived: ", data)
     if data[:10] == HANDSHAKE:
-        print("printer connecting")
+        logging.info("New Client connecting.")
         THRPRT += 1
         #print("Swaping to port ", THRPRT)#FIX LISTNEr THreadthat you broke
         sock.sendall("port {0}".format(THRPRT).encode())
@@ -61,8 +82,8 @@ def _listner():
     
     
     
-def _clientHandler(host, port, details):
-    #time.sleep(.5)
+def _clientHandler(host, port, details):#Might need to thread out both listner and send 
+    logging.info("Starting a client handler on IP:{0} Port:{1}".format(host, port))
     _refresh()
     try:
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -81,14 +102,15 @@ def _clientHandler(host, port, details):
                 _kill(c)
                 break
             print("data from client reived: ", data)
-            if data[:6] == "status":
+            if data[:6] == "status":                 # rework status to include every thing
                 stat = json.loads(data[7:])
                 print("status recieved:", stat[0])
                 c.status = stat[0]
                 c.progress = stat[1]
+                c.gcodes = stat[2]
                 if c.status[0] is False:
                     AVIABLE.append(c)
-                #menu(CLIENTS, AVIABLE)
+                
             # if data != "EOFX" or data != '':
             #     print("Client ", host[0], ": ", data)
     except:
@@ -96,42 +118,29 @@ def _clientHandler(host, port, details):
         # sys.exit()
 
 def _kill(client):
-    print("Closing a client of sorts")
+    logging.info("Client has disconnected, removing from lists")
     try:
-        print("removing from client from client list")
         client.socket.shutdown(socket.SHUT_RDWR)
         client.socket.close()
         CLIENTS.remove(client)
     except:
-        print("failed because its probaly was already attmeped")
-    try:
-        print("removing client from aviable")
+        logging.warning("Failed to disconnect a client.")
+    try:  
         AVIABLE.index(client)
         AVIABLE.remove(client)
     except:
-        pass
-    #menu(CLIENTS, AVIABLE)
+        logging.warning("Failed to disconnect a client.")
 def _refresh():
-    #print("refreshing listner")
+    #logging.info("refreshing listernet thread because of a connection.")
     LISTNER = threading.Thread(name='listner', target=_listner, daemon=True)
     LISTNER.start()
 
 
-def fileTransfer(sock, file):
-    try:
-        with open(file, 'rb') as f:
-            fileData = f.read()
-            sock.sendall(fileData)
-            time.sleep(1)
-            sock.sendall('EOFX'.encode())
-        f.close()
-        return "Upload complete"
-    except:
-        return "Upload failed"
 
 def main():
     global LISTNER
-    print("starting")
+    logging.basicConfig(filename='./logs/server.log', level=logging.DEBUG, format='%(asctime)s %(levelname)s:%(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
+    logging.info("Master server starting")
     while True:
         if LISTNER is None:
             #time.sleep(5)
