@@ -6,7 +6,7 @@ import server, threading, os
 app = Flask(__name__)
 app.secret_key = "Poggers"
 app.template_folder = "./webs"
-app.config['UPLOAD_FOLDER'] = os.getcwd()+"\\prints"
+app.config['UPLOAD_FOLDER'] = os.getcwd()+"\\temp"
 man = threading.Thread(target=server.main, name="server")
 def login_required(x):
     @wraps(x)
@@ -47,8 +47,9 @@ def logout():
 @app.route('/printer/<id>', methods=['POST','GET'])
 @login_required
 def printer(id):
+    server.CLIENTS[int(id)].send("status")
     if request.method == "POST":
-        #print(request.files)
+        print(request)
         if request.form.get("stop") is not None:
             server.CLIENTS[int(id)].send("stop")
         elif request.form.get("resume") is not None:
@@ -56,6 +57,7 @@ def printer(id):
         elif request.form.get("pause") is not None:
             server.CLIENTS[int(id)].send("pause")
         elif request.form.get("file") is not None:
+            print("starting print "+request.form.get("file"))
             server.CLIENTS[int(id)].send("startPrint "+request.form.get("file"))
 
         if "file" in request.files:

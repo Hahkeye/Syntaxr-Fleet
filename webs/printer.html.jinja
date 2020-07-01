@@ -8,19 +8,20 @@
         <h1> {{printer.string()}}</h1>
         <hr>
         <p>Current Line: {{printer.progress[0]}} Total Line Numbers: {{printer.progress[1]}}</p>
-        <p>E temp: {{printer.status[1]}}  B temp: {{printer.status[2]}}</p>
+        <button class="button" onclick="window.location.reload();">refresh</button>
+        <p>E temp: {{printer.temps[1]}}  B temp: {{printer.temps[0]}}</p>
         <form action="" method="post" id="stfForm" >
           {% if printer.status[0] %}
             <input type="submit" id="btnStop" value="Stop" name="stop">
           {% else %}
             <input type="submit" id="btnStop" value="Stop" name="stop" disabled>
           {% endif %}
-          {% if not printer.status[3] %}
+          {% if printer.status[0] %}
             <input type="submit" id="btnPause" value="Pause" name="pause" >
           {% else %}
             <input type="submit" id="btnPause" value="Pause" name="pause" disabled>
           {% endif %}
-          {% if printer.status[3] %}
+          {% if printer.status[1] %}
             <input type="submit" id="btnResume" value="Resume" name="resume" >
           {% else %}
             <input type="submit" id="btnResume" value="Resume" name="resume" disabled>
@@ -32,13 +33,15 @@
             <input type=submit value=Upload>
           </form>  
           <p>Gcode Files:</p>
-          {% for f in printer.gcodes %}
-            {% if not printer.status[0] %}
-              <input type="submit" value="{{ f }}" name="file" >
-            {% else %}
-              <input type="submit" value="{{ f }}" name="file" disabled>
-            {% endif %}
-          {% endfor %}     
+          <form action="" method="post">
+            {% for f in printer.gcodes %}
+              {% if not printer.status[0] %}
+                <input type="submit" value="{{ f }}" name="file" >
+              {% else %}
+                <input type="submit" value="{{ f }}" name="file" disabled>
+              {% endif %}
+            {% endfor %}     
+          </form>
         </div>
         <hr>
         <p><a href="/logout">Logout</a>               <a href="/dashboard">Back</a></p>

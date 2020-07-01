@@ -8,7 +8,7 @@ PORT = 2986
 #Printer Connection Config
 # PPORT = '/dev/ttyACM0'
 # BUAD = 115200
-PPORT = 'COM6'
+PPORT = 'COM4'
 BUAD = 115200
 #
 
@@ -32,24 +32,23 @@ class Printer(object):
 
     def status(self):
         print("Sending status")
-        #temp = (self.printLink.status,self.printLink.progress,self.prints())
-        self.taskMaster.send("status "+json.dumps((self.printLink.status(),self.printLink.progress(),self.prints())))
+        self.taskMaster.send("status "+json.dumps((self.printLink.status(),self.prints())))
 
     def pause(self):
         print("Pauseing print")
-        #self.printLink.pause()
+        self.printLink.pause()
 
     def stop(self):
         print("stopping")#this still needs to be impletmetned in printer.py
-        #self.printLink.stop()
+        self.printLink.stop()
 
     def resume(self):
         print("resuming")
-        #self.printLink.resume()
+        self.printLink.resume()
 
     def prints(self):
-        #print(os.getcwd())
-        self.gcodes = os.listdir("C:\\Users\\reali\source\\repos\\Syntaxr-Fleet\\printss")
+        print(os.getcwd())
+        self.gcodes = os.listdir("C:\\Users\\reali\source\\repos\\Syntaxr-Fleet\\prints")
         return self.gcodes
 
     def ftp(self, name):
@@ -59,21 +58,23 @@ class Printer(object):
 
     def main(self):
         while True: #make sure it cant do anything with out having a connecto to the host and the printer
-            # try:
-            #     if not self.printLink.alive: self.printLink.connect()
-            # except:
-            #     print("Failed To connect to printer, please check usb connection")
+            try:
+                if not self.printLink.alive: self.printLink.connect()
+            except:
+                print("Failed To connect to printer, please check usb connection")
             try:
                 if not self.taskMaster.alive: self.taskMaster.connect(json.dumps((self.name, self.ptype, self.volume)))
             except:
                 print("Failed to connect to host, please make sure host is runing")
-            #time.sleep(3)
+            time.sleep(3)
             # print("w")
             #while True:
-            while self.taskMaster.alive:
-            #while self.taskMaster.alive and self.printLink.alive:
-                #self.idle = self.printLink.printing
-                task = self.taskMaster.getMsg()
+            #while self.taskMaster.alive:
+            print("Tasko Master: ",self.taskMaster.alive," PrinEEt link:", self.printLink.alive)
+            while self.taskMaster.alive and self.printLink.alive:
+                #print("loops")
+                #print("Task: {0} Print: {1}".format(self.taskMaster.alive,self.printLink.alive))
+                task = self.taskMaster.getMsg()#rework getmsg 
                 if task is not None:
                     print("New message recieved from master: ", task)
                     #time.sleep(5)
@@ -81,13 +82,7 @@ class Printer(object):
                         print("Starting Print")
                         target = task[11:]
                         print(target)
-                        # try:
-                        #     if os.path.exists("{0}".format(target)):#change this to linux
-                        #         print(self.printLink.start("{0}".format(target)))#change to prints file "prints\{0}".format(target)
-                        # except:
-                        #     print("specified file not found")
-                        #self.idle = False
-                        #print(self.printLink.start("C:\\Users\\reali\source\\repos\\Syntaxr-Fleet\\{0}".format(target)))#change to prints file "prints\{0}".format(target)
+                        print(self.printLink.start("C:\\Users\\reali\source\\repos\\Syntaxr-Fleet\\prints\\{0}".format(target)))#change to prints file "prints\{0}".format(target)
                     elif task[:6] == "status":
                         self.status()
                     elif task[:5] == "pause":
@@ -101,7 +96,10 @@ class Printer(object):
 
 
                     task = None
+                #print("Task: {0} Print: {1}".format(self.taskMaster.alive,self.printLink.alive))
                 #time.sleep(1)
+                # self.status()  
+            print("Exited")
 if __name__ == "__main__":
-    p = Printer("Ender5 Pro", "FDM", (120, 120, 120))
+    p = Printer("Ender5 Pro", "FDM", (200, 200, 320))
     p.main() 

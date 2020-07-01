@@ -8,11 +8,12 @@ class talk(object):
         self.port = port
         self.last = None
         self.alive = False
-    def getMsg(self):
+    def getMsg(self):#rework this so that its less dumb
         try:
             data = self.socket.recv(1024).decode()
-            print("datat recived: ",data)
-            return data
+            if len(data) == 0: return None
+            #print("data recived: ", data)
+            return data.strip()
         except ConnectionResetError as e:
             self.socket.shutdown(socket.SHUT_RDWR)
             self.socket.close()
@@ -23,7 +24,7 @@ class talk(object):
     def getFile(self, dat):
         name = dat[12:].split("\\")
         name = name[len(name)-1]
-        f = open("C:\\Users\\reali\source\\repos\\Syntaxr-Fleet\\printss\\"+name,"wb")
+        f = open("C:\\Users\\reali\source\\repos\\Syntaxr-Fleet\\prints\\"+name,"wb")
         while True:
             l = self.socket.recv(1024)
             try:
@@ -42,9 +43,9 @@ class talk(object):
             self.socket.shutdown(socket.SHUT_RDWR)
             self.socket.close()
             self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            print("Closing socket becasue of error")
             return
         data = self.getMsg()
-        print(data)
         print("Swapping to port ", data[5:])
         #self.port = int(data[5:])
         self.socket.shutdown(socket.SHUT_RDWR)

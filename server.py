@@ -22,7 +22,8 @@ class Client(object):
         self.volume = volume
         self.gcodes = list()
         self.progress = (0, 0)
-        self.status = (False, None, None, False)
+        self.temps = (0, 0)
+        self.status = (False, False)
     def setStatus(self, stat):
         self.status = stat
     # def string(self):
@@ -68,21 +69,21 @@ def _listner():
     data = sock.recv(1024).decode()
     #print("DATA recived: ", data)
     if data[:10] == HANDSHAKE:
-        logging.info("New Client connecting.")
+        logging.info("New Client connecting. ip: {0} port: {1}".format(address, sock))
         THRPRT += 1
         #print("Swaping to port ", THRPRT)#FIX LISTNEr THreadthat you broke
         sock.sendall("port {0}".format(THRPRT).encode())
         details = json.loads(data[10:])
+        print("Details:  ", details)
         clientThread = threading.Thread(name='clientHandling', target=_clientHandler, args=(HOST, THRPRT, details), daemon=True)
         clientThread.start()
         sock.shutdown(socket.SHUT_RDWR)
         sock.close()
         LISTNER = None
-    
-    
-    
-    
-def _clientHandler(host, port, details):#Might need to thread out both listner and send 
+
+
+
+def _clientHandler(host, port, details):#Might need to thread out both listner and send
     logging.info("Starting a client handler on IP:{0} Port:{1}".format(host, port))
     _refresh()
     try:
@@ -92,7 +93,7 @@ def _clientHandler(host, port, details):#Might need to thread out both listner a
         sock, address = s.accept()
         c = Client(sock, address, details[0], details[1], details[2])
         CLIENTS.append(c)
-        #print("calling intial status")
+        print("calling intial status")
         sock.sendall("status".encode())
         while True:
             try:
@@ -101,35 +102,42 @@ def _clientHandler(host, port, details):#Might need to thread out both listner a
             except:
                 _kill(c)
                 break
-            print("data from client reived: ", data)
+            print("data from {0} recieved: {1}".format(c,data))
             if data[:6] == "status":                 # rework status to include every thing
                 stat = json.loads(data[7:])
                 print("status recieved:", stat[0])
-                c.status = stat[0]
-                c.progress = stat[1]
-                c.gcodes = stat[2]
+                c.status = stat[0][0]
+                #print("Statis: ", stat[0][0])
+                c.temps = stat[0][1]
+                #print("Temps: ", stat[0][2])
+                c.progress = stat[0][2]
+                #print("Progress: ", stat[0][2])
+                c.gcodes = stat[1]
                 if c.status[0] is False:
                     AVIABLE.append(c)
                 
-            # if data != "EOFX" or data != '':
-            #     print("Client ", host[0], ": ", data)
     except:
         _kill(c)
         # sys.exit()
 
 def _kill(client):
     logging.info("Client has disconnected, removing from lists")
-    try:
-        client.socket.shutdown(socket.SHUT_RDWR)
-        client.socket.close()
-        CLIENTS.remove(client)
-    except:
-        logging.warning("Failed to disconnect a client.")
+    # try:
+    #     client.socket.shutdown(socket.SHUT_RDWR)
+    #     client.socket.close()
+    #     CLIENTS.remove(client)
+    # except:
+    #     logging.warning("Failed to disconnect a client and remove it from clients. ")
+    client.socket.shutdown(socket.SHUT_RDWR)
+    client.socket.close()
+    CLIENTS.remove(client)
+
+
     try:  
         AVIABLE.index(client)
         AVIABLE.remove(client)
     except:
-        logging.warning("Failed to disconnect a client.")
+        logging.warning("Failed to disconnect a client and remove it from aviable list.")
 def _refresh():
     #logging.info("refreshing listernet thread because of a connection.")
     LISTNER = threading.Thread(name='listner', target=_listner, daemon=True)
