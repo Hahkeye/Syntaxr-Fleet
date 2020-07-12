@@ -105,7 +105,7 @@ def _clientHandler(host, port, details):#Might need to thread out both listner a
             print("data from {0} recieved: {1}".format(c,data))
             if data[:6] == "status":                 # rework status to include every thing
                 stat = json.loads(data[7:])
-                print("status recieved:", stat[0])
+                #print("status recieved:", stat[0])
                 c.status = stat[0][0]
                 #print("Statis: ", stat[0][0])
                 c.temps = stat[0][1]

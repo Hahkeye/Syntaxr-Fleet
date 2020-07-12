@@ -16,7 +16,7 @@
           {% else %}
             <input type="submit" id="btnStop" value="Stop" name="stop" disabled>
           {% endif %}
-          {% if printer.status[0] %}
+          {% if printer.status[0] and not printer.status[1] %}
             <input type="submit" id="btnPause" value="Pause" name="pause" >
           {% else %}
             <input type="submit" id="btnPause" value="Pause" name="pause" disabled>
@@ -31,12 +31,17 @@
           <form method="post" enctype="multipart/form-data" >
             <input type=file name=file>
             <input type=submit value=Upload>
-          </form>  
+          </form> 
+          <form action=""  method="post">
+            <label for="command">CLI:</label>
+            <input type="text" id="com" name="command">
+            <input type="submit" value="submit">
+          </form>
           <p>Gcode Files:</p>
           <form action="" method="post">
             {% for f in printer.gcodes %}
               {% if not printer.status[0] %}
-                <input type="submit" value="{{ f }}" name="file" >
+                <input type="submit" value="{{ f }}" name="file" ondblclick="remove(this);" >
               {% else %}
                 <input type="submit" value="{{ f }}" name="file" disabled>
               {% endif %}

@@ -34,17 +34,23 @@ class Printer(object):
         print("Sending status")
         self.taskMaster.send("status "+json.dumps((self.printLink.status(),self.prints())))
 
+    def exec(self, cmd):
+        self.printLink.execute(cmd)
+
     def pause(self):
         print("Pauseing print")
         self.printLink.pause()
+        self.status()
 
     def stop(self):
         print("stopping")#this still needs to be impletmetned in printer.py
         self.printLink.stop()
+        self.status()
 
     def resume(self):
         print("resuming")
         self.printLink.resume()
+        self.status()
 
     def prints(self):
         print(os.getcwd())
@@ -67,13 +73,9 @@ class Printer(object):
             except:
                 print("Failed to connect to host, please make sure host is runing")
             time.sleep(3)
-            # print("w")
-            #while True:
-            #while self.taskMaster.alive:
-            print("Tasko Master: ",self.taskMaster.alive," PrinEEt link:", self.printLink.alive)
+
+            print("Tasko Master: ", self.taskMaster.alive, " PrinEEt link:", self.printLink.alive)
             while self.taskMaster.alive and self.printLink.alive:
-                #print("loops")
-                #print("Task: {0} Print: {1}".format(self.taskMaster.alive,self.printLink.alive))
                 task = self.taskMaster.getMsg()#rework getmsg 
                 if task is not None:
                     print("New message recieved from master: ", task)
@@ -93,13 +95,12 @@ class Printer(object):
                         self.resume()
                     elif task[:12] == "fileTransfer":
                         self.ftp(task[12:])
-
-
-                    task = None
-                #print("Task: {0} Print: {1}".format(self.taskMaster.alive,self.printLink.alive))
-                #time.sleep(1)
-                # self.status()  
+                    elif task[:3] == "cmd":
+                        self.exec(task[3:])
+                    task = None 
             print("Exited")
 if __name__ == "__main__":
     p = Printer("Ender5 Pro", "FDM", (200, 200, 320))
+    #p.printLink.printing = True
     p.main() 
+    

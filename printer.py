@@ -12,7 +12,7 @@ class Printer():
         self.printing = False
         self.alive = False
         self.needCommand = True
-        self.lineNumber = 0
+        self.lineNumber = 1
         self.totalLines = 0
         self.connection = None
         self.bedTemp = 0
@@ -33,14 +33,13 @@ class Printer():
         self.alive = True
 
     def disconnect(self):
-        #print("bye")
         self.connection.close()
         self.printing = False
         self.alive = False
 
     def execute(self, command):
         if self.printing:
-            self.printQueue.appendleft(command)#adjust this accroading to print status, if its printing it must added it to the queue
+            self.printQueue.appendleft(command)
         else:
             self._send(command)
 
@@ -51,7 +50,6 @@ class Printer():
             dat = dat.splitlines()
             for line in dat:
                 if line[:1] != ";":
-                    # print(line)
                     line = line.split(";")
                     if "M109" in line:
                         self.targetExTemp = line[5:]
@@ -62,31 +60,38 @@ class Printer():
         return True
                 
     def start(self, gcode):
-        self.printing = True #throw everything into print queue
+        self.printing = True
         self.load(gcode)
         self.execute("M110")
+        self.execute("M75")
         self.printingThread = threading.Thread(name="Printing Thread", target=self._print)
         self.printingThread.start()
         return True
 
     def pause(self):
         if self.printing:
+            self.execute("M76")
             self.execute("M600 X0 Y0")
             self.printing = False
             self.printingPause = True
             self.printingThread.join()
             self.printingThread = None
 
-    def stop(self):
+    def stop(self): #fix this stuff
         if self.printing or self.printingPause:
-            self.execute("M112")
-            #self.execute("M0")
+            self.execute("M0")
+            self.execute("M77")
+            self.execute("M109 S0")
+            self.execute("M190 S0")
+            self.execute("M84")
+            self.execute("G28 X0 Y0")
             self.printing = False
             self.printingThread.join()
             self.printingThread = None
 
     def resume(self):
         if self.printingPause:
+            self.execute("M75")
             self.printing = True
             self.printingPause = False
             self.printingThread = threading.Thread(name="Printing Thread", target=self._print)
@@ -95,18 +100,18 @@ class Printer():
     def progress(self):
         return (self.lineNumber, self.totalLines)
 
-    def status(self):
+    def status(self):# add M78 m31
         return (self.printing, self.printingPause), (self.bedTemp, self.exTemp), (self.lineNumber, self.totalLines)
 
 
 #rework to support wifis
     def _send(self, command):
-        # also add soem logic to reset lines if m110 is sent
         command = "N{0} {1}".format(self.lineNumber, command)
         command = "{0}*{1}\n".format(command, functools.reduce(lambda x, y: x ^ y, map(ord, command)))
-        #print("SEND:", command)
+        print("SEND:", command)
         self.connection.write(bytes(command, 'utf-8'))
         self.lineNumber += 1
+        
         
 
     def _readLine(self):
@@ -115,24 +120,28 @@ class Printer():
     def _listen(self):
         #last = None
         while self.connection.is_open:
-            line = self._readLine().strip()
-            if len(line) > 1:
-                if "busy" in line:
-                    print("busy")
-                    pass
-                if line[0]=="T":
-                    line = line.split(" ")
-                    #print(line)
-                    self.bedTemp=line[2].split(":")[1]
-                    print("\nBed Temp: ", self.bedTemp)
-                    self.exTemp=line[0].split(":")[1]
-                    print("Extruder Temp: ", self.exTemp)
-                    continue
-                elif self.printing and "ok" in line:
-                    self.needCommand = True
-                    print("getting new command")
-                #print("line o: ",line[0])
-                #print("RECIVED: ", line)
+            try:
+                line = self._readLine().strip()
+                if len(line) >= 1:
+                    if "busy" in line:
+                        #print("busy")
+                        pass
+                    if line[0] == "T":
+                        line = line.split(" ")
+                        #print(line)
+                        self.bedTemp = line[2].split(":")[1]
+                        #print("\nBed Temp: ", self.bedTemp)
+                        self.exTemp = line[0].split(":")[1]
+                        #print("Extruder Temp: ", self.exTemp)
+                        continue
+                    elif self.printing and "ok" in line: #add tempature polling
+                        self.needCommand = True
+                        #print("getting new command")
+                    #print("line o: ",line[0])
+                    print("RECIVED: ", line)
+            except:
+                print("Errror in reading the printer ")
+                self.alive = False
 
     def _print(self):
         while len(self.printQueue) != 0:

@@ -47,9 +47,9 @@ def logout():
 @app.route('/printer/<id>', methods=['POST','GET'])
 @login_required
 def printer(id):
-    server.CLIENTS[int(id)].send("status")
+    server.CLIENTS[int(id)].send("status") #rework this to not be text and be an actual command
     if request.method == "POST":
-        print(request)
+        print(request.form)
         if request.form.get("stop") is not None:
             server.CLIENTS[int(id)].send("stop")
         elif request.form.get("resume") is not None:
@@ -59,6 +59,8 @@ def printer(id):
         elif request.form.get("file") is not None:
             print("starting print "+request.form.get("file"))
             server.CLIENTS[int(id)].send("startPrint "+request.form.get("file"))
+        elif request.form.get("command") is not None:
+            server.CLIENTS[int(id)].send("cmd "+request.form.get("command"))
 
         if "file" in request.files:
             print("File being uploaded")

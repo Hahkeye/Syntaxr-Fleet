@@ -1285,3 +1285,1242 @@ IndexError: list index out of range
 07/01/2020 12:06:26 AM INFO:127.0.0.1 - - [01/Jul/2020 00:06:26] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
 07/01/2020 12:06:59 AM INFO:127.0.0.1 - - [01/Jul/2020 00:06:59] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
 07/01/2020 12:07:00 AM INFO:127.0.0.1 - - [01/Jul/2020 00:07:00] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/01/2020 09:24:05 PM INFO:Master server starting
+07/01/2020 09:24:05 PM INFO:Client Listener started.
+07/01/2020 09:24:05 PM INFO: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+07/01/2020 09:24:08 PM INFO:New Client connecting. ip: ('127.0.0.1', 64606) port: <socket.socket fd=936, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 64606)>
+07/01/2020 09:24:08 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2987
+07/01/2020 09:24:08 PM INFO:Client Listener started.
+07/01/2020 09:42:54 PM INFO:127.0.0.1 - - [01/Jul/2020 21:42:54] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/01/2020 09:56:46 PM INFO:127.0.0.1 - - [01/Jul/2020 21:56:46] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/01/2020 09:56:46 PM INFO:127.0.0.1 - - [01/Jul/2020 21:56:46] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/01/2020 09:56:52 PM INFO:Starting file transfer to Ender5 Pro
+07/01/2020 09:56:54 PM INFO:127.0.0.1 - - [01/Jul/2020 21:56:54] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/01/2020 09:56:54 PM INFO:127.0.0.1 - - [01/Jul/2020 21:56:54] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/01/2020 09:56:57 PM INFO:127.0.0.1 - - [01/Jul/2020 21:56:57] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/01/2020 09:56:57 PM INFO:127.0.0.1 - - [01/Jul/2020 21:56:57] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/01/2020 09:59:53 PM INFO:127.0.0.1 - - [01/Jul/2020 21:59:53] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/01/2020 09:59:55 PM INFO:127.0.0.1 - - [01/Jul/2020 21:59:55] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/01/2020 09:59:56 PM INFO:127.0.0.1 - - [01/Jul/2020 21:59:56] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/01/2020 09:59:56 PM INFO:127.0.0.1 - - [01/Jul/2020 21:59:56] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/01/2020 10:04:58 PM INFO:127.0.0.1 - - [01/Jul/2020 22:04:58] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/01/2020 10:05:05 PM INFO:Client has disconnected, removing from lists
+07/01/2020 10:05:11 PM ERROR:Exception on /printer/0 [GET]
+Traceback (most recent call last):
+  File "C:\Users\reali\AppData\Local\Programs\Python\Python38-32\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\reali\AppData\Local\Programs\Python\Python38-32\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\reali\AppData\Local\Programs\Python\Python38-32\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\reali\AppData\Local\Programs\Python\Python38-32\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\reali\AppData\Local\Programs\Python\Python38-32\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\reali\AppData\Local\Programs\Python\Python38-32\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:/Users/reali/source/repos/Syntaxr-Fleet/webstuff.py", line 15, in wrap
+    return x(*args, **kwargs)
+  File "c:/Users/reali/source/repos/Syntaxr-Fleet/webstuff.py", line 50, in printer
+    server.CLIENTS[int(id)].send("status")
+IndexError: list index out of range
+07/01/2020 10:05:11 PM INFO:127.0.0.1 - - [01/Jul/2020 22:05:11] "[35m[1mGET /printer/0 HTTP/1.1[0m" 500 -
+07/01/2020 10:05:12 PM ERROR:Exception on /printer/0 [GET]
+Traceback (most recent call last):
+  File "C:\Users\reali\AppData\Local\Programs\Python\Python38-32\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\reali\AppData\Local\Programs\Python\Python38-32\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\reali\AppData\Local\Programs\Python\Python38-32\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\reali\AppData\Local\Programs\Python\Python38-32\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\reali\AppData\Local\Programs\Python\Python38-32\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\reali\AppData\Local\Programs\Python\Python38-32\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:/Users/reali/source/repos/Syntaxr-Fleet/webstuff.py", line 15, in wrap
+    return x(*args, **kwargs)
+  File "c:/Users/reali/source/repos/Syntaxr-Fleet/webstuff.py", line 50, in printer
+    server.CLIENTS[int(id)].send("status")
+IndexError: list index out of range
+07/01/2020 10:05:12 PM INFO:127.0.0.1 - - [01/Jul/2020 22:05:12] "[35m[1mGET /printer/0 HTTP/1.1[0m" 500 -
+07/01/2020 10:05:13 PM ERROR:Exception on /printer/0 [GET]
+Traceback (most recent call last):
+  File "C:\Users\reali\AppData\Local\Programs\Python\Python38-32\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\reali\AppData\Local\Programs\Python\Python38-32\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\reali\AppData\Local\Programs\Python\Python38-32\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\reali\AppData\Local\Programs\Python\Python38-32\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\reali\AppData\Local\Programs\Python\Python38-32\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\reali\AppData\Local\Programs\Python\Python38-32\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:/Users/reali/source/repos/Syntaxr-Fleet/webstuff.py", line 15, in wrap
+    return x(*args, **kwargs)
+  File "c:/Users/reali/source/repos/Syntaxr-Fleet/webstuff.py", line 50, in printer
+    server.CLIENTS[int(id)].send("status")
+IndexError: list index out of range
+07/01/2020 10:05:13 PM INFO:127.0.0.1 - - [01/Jul/2020 22:05:13] "[35m[1mGET /printer/0 HTTP/1.1[0m" 500 -
+07/01/2020 10:05:16 PM INFO:New Client connecting. ip: ('127.0.0.1', 49591) port: <socket.socket fd=1128, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 49591)>
+07/01/2020 10:05:16 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2988
+07/01/2020 10:05:16 PM INFO:Client Listener started.
+07/01/2020 10:05:18 PM INFO:127.0.0.1 - - [01/Jul/2020 22:05:18] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/01/2020 10:05:19 PM INFO:127.0.0.1 - - [01/Jul/2020 22:05:19] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/01/2020 10:05:21 PM INFO:127.0.0.1 - - [01/Jul/2020 22:05:21] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/01/2020 10:05:23 PM INFO:127.0.0.1 - - [01/Jul/2020 22:05:23] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/01/2020 10:05:23 PM INFO:127.0.0.1 - - [01/Jul/2020 22:05:23] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/01/2020 10:11:57 PM INFO:127.0.0.1 - - [01/Jul/2020 22:11:57] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/01/2020 10:12:01 PM INFO:127.0.0.1 - - [01/Jul/2020 22:12:01] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/01/2020 10:12:05 PM INFO:127.0.0.1 - - [01/Jul/2020 22:12:05] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/01/2020 10:20:27 PM INFO:127.0.0.1 - - [01/Jul/2020 22:20:27] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/01/2020 10:20:27 PM INFO:127.0.0.1 - - [01/Jul/2020 22:20:27] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/01/2020 10:33:24 PM INFO:Client has disconnected, removing from lists
+07/01/2020 10:33:27 PM INFO:New Client connecting. ip: ('127.0.0.1', 50816) port: <socket.socket fd=1232, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 50816)>
+07/01/2020 10:33:27 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2989
+07/01/2020 10:33:27 PM INFO:Client Listener started.
+07/01/2020 10:33:36 PM INFO:127.0.0.1 - - [01/Jul/2020 22:33:36] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/01/2020 10:33:37 PM INFO:127.0.0.1 - - [01/Jul/2020 22:33:37] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/01/2020 10:33:37 PM INFO:127.0.0.1 - - [01/Jul/2020 22:33:37] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/01/2020 10:33:46 PM INFO:Client has disconnected, removing from lists
+07/01/2020 10:33:57 PM INFO:New Client connecting. ip: ('127.0.0.1', 50837) port: <socket.socket fd=1272, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 50837)>
+07/01/2020 10:33:57 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2990
+07/01/2020 10:33:57 PM INFO:Client Listener started.
+07/01/2020 10:34:05 PM INFO:127.0.0.1 - - [01/Jul/2020 22:34:05] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/01/2020 10:34:07 PM INFO:127.0.0.1 - - [01/Jul/2020 22:34:07] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/01/2020 10:34:07 PM INFO:127.0.0.1 - - [01/Jul/2020 22:34:07] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/01/2020 11:16:55 PM INFO:127.0.0.1 - - [01/Jul/2020 23:16:55] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/01/2020 11:16:57 PM INFO:127.0.0.1 - - [01/Jul/2020 23:16:57] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/01/2020 11:16:59 PM INFO:127.0.0.1 - - [01/Jul/2020 23:16:59] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/01/2020 11:17:00 PM INFO:127.0.0.1 - - [01/Jul/2020 23:17:00] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/01/2020 11:18:20 PM INFO:127.0.0.1 - - [01/Jul/2020 23:18:20] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/01/2020 11:18:27 PM INFO:127.0.0.1 - - [01/Jul/2020 23:18:27] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/01/2020 11:18:28 PM INFO:127.0.0.1 - - [01/Jul/2020 23:18:28] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/01/2020 11:18:29 PM INFO:127.0.0.1 - - [01/Jul/2020 23:18:29] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/01/2020 11:35:10 PM INFO:127.0.0.1 - - [01/Jul/2020 23:35:10] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/01/2020 11:35:11 PM INFO:127.0.0.1 - - [01/Jul/2020 23:35:11] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/01/2020 11:37:47 PM INFO:127.0.0.1 - - [01/Jul/2020 23:37:47] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/01/2020 11:37:48 PM INFO:127.0.0.1 - - [01/Jul/2020 23:37:48] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 12:17:55 AM INFO:127.0.0.1 - - [02/Jul/2020 00:17:55] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 12:17:56 AM INFO:127.0.0.1 - - [02/Jul/2020 00:17:56] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 12:18:12 AM INFO:Client has disconnected, removing from lists
+07/02/2020 02:31:41 PM INFO:Master server starting
+07/02/2020 02:31:41 PM INFO:Client Listener started.
+07/02/2020 02:31:41 PM INFO: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+07/02/2020 02:31:46 PM INFO:New Client connecting. ip: ('127.0.0.1', 58889) port: <socket.socket fd=592, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 58889)>
+07/02/2020 02:31:46 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2987
+07/02/2020 02:31:46 PM INFO:Client Listener started.
+07/02/2020 02:31:46 PM INFO:Client Listener started.
+07/02/2020 02:31:55 PM INFO:127.0.0.1 - - [02/Jul/2020 14:31:55] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/02/2020 02:31:55 PM INFO:127.0.0.1 - - [02/Jul/2020 14:31:55] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/02/2020 02:31:56 PM INFO:127.0.0.1 - - [02/Jul/2020 14:31:56] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 02:32:01 PM INFO:Starting file transfer to Ender5 Pro
+07/02/2020 02:32:03 PM INFO:127.0.0.1 - - [02/Jul/2020 14:32:03] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/02/2020 02:32:03 PM INFO:127.0.0.1 - - [02/Jul/2020 14:32:03] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 02:32:07 PM INFO:127.0.0.1 - - [02/Jul/2020 14:32:07] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/02/2020 02:32:07 PM INFO:127.0.0.1 - - [02/Jul/2020 14:32:07] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 02:32:18 PM INFO:Client has disconnected, removing from lists
+07/02/2020 02:32:24 PM INFO:New Client connecting. ip: ('127.0.0.1', 58932) port: <socket.socket fd=412, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 58932)>
+07/02/2020 02:32:24 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2988
+07/02/2020 02:32:24 PM INFO:Client Listener started.
+07/02/2020 02:32:35 PM INFO:127.0.0.1 - - [02/Jul/2020 14:32:35] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/02/2020 02:32:35 PM INFO:127.0.0.1 - - [02/Jul/2020 14:32:35] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/02/2020 02:32:36 PM INFO:127.0.0.1 - - [02/Jul/2020 14:32:36] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/02/2020 02:32:36 PM INFO:127.0.0.1 - - [02/Jul/2020 14:32:36] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/02/2020 02:32:36 PM INFO:127.0.0.1 - - [02/Jul/2020 14:32:36] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 02:32:38 PM INFO:127.0.0.1 - - [02/Jul/2020 14:32:38] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/02/2020 02:32:38 PM INFO:127.0.0.1 - - [02/Jul/2020 14:32:38] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 03:17:18 PM INFO:127.0.0.1 - - [02/Jul/2020 15:17:18] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 03:17:19 PM INFO:127.0.0.1 - - [02/Jul/2020 15:17:19] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/02/2020 03:17:19 PM INFO:127.0.0.1 - - [02/Jul/2020 15:17:19] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 03:37:24 PM INFO:Client has disconnected, removing from lists
+07/02/2020 03:37:27 PM INFO:New Client connecting. ip: ('127.0.0.1', 61104) port: <socket.socket fd=1156, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 61104)>
+07/02/2020 03:37:27 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2989
+07/02/2020 03:37:27 PM INFO:Client Listener started.
+07/02/2020 03:37:33 PM INFO:127.0.0.1 - - [02/Jul/2020 15:37:33] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 03:37:34 PM INFO:127.0.0.1 - - [02/Jul/2020 15:37:34] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 03:37:37 PM INFO:127.0.0.1 - - [02/Jul/2020 15:37:37] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/02/2020 03:37:37 PM INFO:127.0.0.1 - - [02/Jul/2020 15:37:37] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 05:47:53 PM INFO:127.0.0.1 - - [02/Jul/2020 17:47:53] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 05:47:53 PM INFO:127.0.0.1 - - [02/Jul/2020 17:47:53] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 07:17:51 PM INFO:127.0.0.1 - - [02/Jul/2020 19:17:51] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 07:17:52 PM INFO:127.0.0.1 - - [02/Jul/2020 19:17:52] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 07:17:58 PM INFO:127.0.0.1 - - [02/Jul/2020 19:17:58] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 07:51:19 PM INFO:Client has disconnected, removing from lists
+07/02/2020 07:51:42 PM INFO:New Client connecting. ip: ('127.0.0.1', 54043) port: <socket.socket fd=548, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 54043)>
+07/02/2020 07:51:42 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2990
+07/02/2020 07:51:42 PM INFO:Client Listener started.
+07/02/2020 07:51:44 PM INFO:127.0.0.1 - - [02/Jul/2020 19:51:44] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 07:51:45 PM INFO:127.0.0.1 - - [02/Jul/2020 19:51:45] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 07:51:45 PM INFO:127.0.0.1 - - [02/Jul/2020 19:51:45] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 07:51:45 PM INFO:127.0.0.1 - - [02/Jul/2020 19:51:45] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 07:51:46 PM INFO:127.0.0.1 - - [02/Jul/2020 19:51:46] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 07:51:47 PM INFO:127.0.0.1 - - [02/Jul/2020 19:51:47] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 07:51:49 PM INFO:127.0.0.1 - - [02/Jul/2020 19:51:49] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/02/2020 07:51:49 PM INFO:127.0.0.1 - - [02/Jul/2020 19:51:49] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 08:34:37 PM INFO:127.0.0.1 - - [02/Jul/2020 20:34:37] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 08:34:37 PM INFO:127.0.0.1 - - [02/Jul/2020 20:34:37] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 08:34:38 PM INFO:127.0.0.1 - - [02/Jul/2020 20:34:38] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/02/2020 08:34:38 PM INFO:127.0.0.1 - - [02/Jul/2020 20:34:38] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 08:34:39 PM INFO:127.0.0.1 - - [02/Jul/2020 20:34:39] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/02/2020 08:34:39 PM INFO:127.0.0.1 - - [02/Jul/2020 20:34:39] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 08:41:04 PM INFO:Client has disconnected, removing from lists
+07/02/2020 08:44:53 PM INFO:New Client connecting. ip: ('127.0.0.1', 55988) port: <socket.socket fd=1316, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 55988)>
+07/02/2020 08:44:53 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2991
+07/02/2020 08:44:53 PM INFO:Client Listener started.
+07/02/2020 08:45:09 PM INFO:127.0.0.1 - - [02/Jul/2020 20:45:09] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 08:45:09 PM INFO:127.0.0.1 - - [02/Jul/2020 20:45:09] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 08:45:09 PM INFO:127.0.0.1 - - [02/Jul/2020 20:45:09] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 08:45:16 PM INFO:Starting file transfer to Ender5 Pro
+07/02/2020 08:45:18 PM INFO:127.0.0.1 - - [02/Jul/2020 20:45:18] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/02/2020 08:45:21 PM INFO:127.0.0.1 - - [02/Jul/2020 20:45:21] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 08:45:23 PM INFO:127.0.0.1 - - [02/Jul/2020 20:45:23] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/02/2020 08:45:23 PM INFO:127.0.0.1 - - [02/Jul/2020 20:45:23] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 08:49:54 PM INFO:127.0.0.1 - - [02/Jul/2020 20:49:54] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 08:49:54 PM INFO:127.0.0.1 - - [02/Jul/2020 20:49:54] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 08:49:54 PM INFO:127.0.0.1 - - [02/Jul/2020 20:49:54] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 08:49:55 PM INFO:127.0.0.1 - - [02/Jul/2020 20:49:55] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/02/2020 08:49:55 PM INFO:127.0.0.1 - - [02/Jul/2020 20:49:55] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 08:50:44 PM INFO:127.0.0.1 - - [02/Jul/2020 20:50:44] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 08:50:44 PM INFO:127.0.0.1 - - [02/Jul/2020 20:50:44] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 08:50:44 PM INFO:127.0.0.1 - - [02/Jul/2020 20:50:44] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 08:50:44 PM INFO:127.0.0.1 - - [02/Jul/2020 20:50:44] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 08:50:47 PM INFO:Client has disconnected, removing from lists
+07/02/2020 08:51:29 PM INFO:New Client connecting. ip: ('127.0.0.1', 56243) port: <socket.socket fd=1036, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 56243)>
+07/02/2020 08:51:29 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2992
+07/02/2020 08:51:29 PM INFO:Client Listener started.
+07/02/2020 08:51:34 PM INFO:127.0.0.1 - - [02/Jul/2020 20:51:34] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 08:51:34 PM INFO:127.0.0.1 - - [02/Jul/2020 20:51:34] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 08:51:35 PM INFO:127.0.0.1 - - [02/Jul/2020 20:51:35] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/02/2020 08:51:35 PM INFO:127.0.0.1 - - [02/Jul/2020 20:51:35] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 10:24:44 PM INFO:127.0.0.1 - - [02/Jul/2020 22:24:44] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 10:24:46 PM INFO:127.0.0.1 - - [02/Jul/2020 22:24:46] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 10:30:49 PM INFO:127.0.0.1 - - [02/Jul/2020 22:30:49] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 10:30:50 PM INFO:127.0.0.1 - - [02/Jul/2020 22:30:50] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 11:20:31 PM INFO:127.0.0.1 - - [02/Jul/2020 23:20:31] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 11:20:32 PM INFO:127.0.0.1 - - [02/Jul/2020 23:20:32] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 11:20:33 PM INFO:127.0.0.1 - - [02/Jul/2020 23:20:33] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/02/2020 11:20:33 PM INFO:127.0.0.1 - - [02/Jul/2020 23:20:33] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 11:22:05 PM INFO:Client has disconnected, removing from lists
+07/02/2020 11:22:57 PM INFO:New Client connecting. ip: ('127.0.0.1', 61388) port: <socket.socket fd=1232, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 61388)>
+07/02/2020 11:22:57 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2993
+07/02/2020 11:22:57 PM INFO:Client Listener started.
+07/02/2020 11:23:00 PM INFO:127.0.0.1 - - [02/Jul/2020 23:23:00] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 11:23:00 PM INFO:127.0.0.1 - - [02/Jul/2020 23:23:00] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 11:23:00 PM INFO:127.0.0.1 - - [02/Jul/2020 23:23:00] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 11:23:00 PM INFO:127.0.0.1 - - [02/Jul/2020 23:23:00] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 11:23:00 PM INFO:127.0.0.1 - - [02/Jul/2020 23:23:00] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 11:23:01 PM INFO:127.0.0.1 - - [02/Jul/2020 23:23:01] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 11:23:01 PM INFO:127.0.0.1 - - [02/Jul/2020 23:23:01] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 11:23:02 PM INFO:127.0.0.1 - - [02/Jul/2020 23:23:02] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 11:23:02 PM INFO:127.0.0.1 - - [02/Jul/2020 23:23:02] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 11:23:02 PM INFO:127.0.0.1 - - [02/Jul/2020 23:23:02] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 11:23:04 PM INFO:127.0.0.1 - - [02/Jul/2020 23:23:04] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/02/2020 11:23:04 PM INFO:127.0.0.1 - - [02/Jul/2020 23:23:04] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 11:45:39 PM INFO:127.0.0.1 - - [02/Jul/2020 23:45:39] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 11:45:40 PM INFO:127.0.0.1 - - [02/Jul/2020 23:45:40] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 11:45:40 PM INFO:127.0.0.1 - - [02/Jul/2020 23:45:40] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 11:45:40 PM INFO:127.0.0.1 - - [02/Jul/2020 23:45:40] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 11:50:16 PM INFO:127.0.0.1 - - [02/Jul/2020 23:50:16] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/02/2020 11:50:16 PM INFO:127.0.0.1 - - [02/Jul/2020 23:50:16] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/02/2020 11:50:43 PM INFO:Client has disconnected, removing from lists
+07/03/2020 04:23:52 PM INFO:Master server starting
+07/03/2020 04:23:52 PM INFO:Client Listener started.
+07/03/2020 04:23:52 PM INFO: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+07/03/2020 04:23:55 PM INFO:New Client connecting. ip: ('127.0.0.1', 50430) port: <socket.socket fd=1048, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 50430)>
+07/03/2020 04:23:55 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2987
+07/03/2020 04:23:55 PM INFO:Client Listener started.
+07/03/2020 04:23:55 PM INFO:Client Listener started.
+07/03/2020 04:24:01 PM INFO:127.0.0.1 - - [03/Jul/2020 16:24:01] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/03/2020 04:24:01 PM INFO:127.0.0.1 - - [03/Jul/2020 16:24:01] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/03/2020 04:24:01 PM INFO:127.0.0.1 - - [03/Jul/2020 16:24:01] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/03/2020 04:24:01 PM INFO:127.0.0.1 - - [03/Jul/2020 16:24:01] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/03/2020 04:24:01 PM INFO:127.0.0.1 - - [03/Jul/2020 16:24:01] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/03/2020 04:24:02 PM INFO:127.0.0.1 - - [03/Jul/2020 16:24:02] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/03/2020 04:24:02 PM INFO:127.0.0.1 - - [03/Jul/2020 16:24:02] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/03/2020 04:24:02 PM INFO:127.0.0.1 - - [03/Jul/2020 16:24:02] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/03/2020 04:24:02 PM INFO:127.0.0.1 - - [03/Jul/2020 16:24:02] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/03/2020 04:24:03 PM INFO:127.0.0.1 - - [03/Jul/2020 16:24:03] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/03/2020 04:24:03 PM INFO:127.0.0.1 - - [03/Jul/2020 16:24:03] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/03/2020 04:24:05 PM INFO:127.0.0.1 - - [03/Jul/2020 16:24:05] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/03/2020 04:24:05 PM INFO:127.0.0.1 - - [03/Jul/2020 16:24:05] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/03/2020 06:44:47 PM INFO:127.0.0.1 - - [03/Jul/2020 18:44:47] "[37mGET /login HTTP/1.1[0m" 200 -
+07/03/2020 06:44:47 PM INFO:127.0.0.1 - - [03/Jul/2020 18:44:47] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/03/2020 06:44:53 PM INFO:127.0.0.1 - - [03/Jul/2020 18:44:53] "[32mPOST /login HTTP/1.1[0m" 302 -
+07/03/2020 06:44:53 PM INFO:127.0.0.1 - - [03/Jul/2020 18:44:53] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/03/2020 06:44:53 PM INFO:127.0.0.1 - - [03/Jul/2020 18:44:53] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/03/2020 06:44:55 PM INFO:127.0.0.1 - - [03/Jul/2020 18:44:55] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/03/2020 06:44:56 PM INFO:127.0.0.1 - - [03/Jul/2020 18:44:56] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/03/2020 06:44:57 PM INFO:127.0.0.1 - - [03/Jul/2020 18:44:57] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/03/2020 06:44:57 PM INFO:127.0.0.1 - - [03/Jul/2020 18:44:57] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/03/2020 07:01:46 PM INFO:127.0.0.1 - - [03/Jul/2020 19:01:46] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/03/2020 07:01:46 PM INFO:127.0.0.1 - - [03/Jul/2020 19:01:46] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/03/2020 07:16:34 PM INFO:127.0.0.1 - - [03/Jul/2020 19:16:34] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/03/2020 07:16:34 PM INFO:127.0.0.1 - - [03/Jul/2020 19:16:34] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/03/2020 07:16:36 PM INFO:127.0.0.1 - - [03/Jul/2020 19:16:36] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/03/2020 07:16:36 PM INFO:127.0.0.1 - - [03/Jul/2020 19:16:36] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/03/2020 07:33:13 PM INFO:127.0.0.1 - - [03/Jul/2020 19:33:13] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/03/2020 07:33:13 PM INFO:127.0.0.1 - - [03/Jul/2020 19:33:13] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/03/2020 07:33:13 PM INFO:127.0.0.1 - - [03/Jul/2020 19:33:13] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/03/2020 07:33:15 PM INFO:127.0.0.1 - - [03/Jul/2020 19:33:15] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/03/2020 07:33:15 PM INFO:127.0.0.1 - - [03/Jul/2020 19:33:15] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/03/2020 07:33:23 PM INFO:Client has disconnected, removing from lists
+07/04/2020 05:17:18 PM INFO:Master server starting
+07/04/2020 05:17:18 PM INFO:Client Listener started.
+07/04/2020 05:17:18 PM INFO: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+07/04/2020 05:17:54 PM INFO:New Client connecting. ip: ('127.0.0.1', 49749) port: <socket.socket fd=832, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 49749)>
+07/04/2020 05:17:54 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2987
+07/04/2020 05:17:54 PM INFO:Client Listener started.
+07/04/2020 05:18:04 PM INFO:127.0.0.1 - - [04/Jul/2020 17:18:04] "[37mGET /login HTTP/1.1[0m" 200 -
+07/04/2020 05:18:04 PM INFO:127.0.0.1 - - [04/Jul/2020 17:18:04] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/04/2020 05:18:08 PM INFO:127.0.0.1 - - [04/Jul/2020 17:18:08] "[37mPOST /login HTTP/1.1[0m" 200 -
+07/04/2020 05:18:08 PM INFO:127.0.0.1 - - [04/Jul/2020 17:18:08] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/04/2020 05:18:13 PM INFO:127.0.0.1 - - [04/Jul/2020 17:18:13] "[32mPOST /login HTTP/1.1[0m" 302 -
+07/04/2020 05:18:13 PM INFO:127.0.0.1 - - [04/Jul/2020 17:18:13] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/04/2020 05:18:13 PM INFO:127.0.0.1 - - [04/Jul/2020 17:18:13] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/04/2020 05:18:14 PM INFO:127.0.0.1 - - [04/Jul/2020 17:18:14] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 05:18:14 PM INFO:127.0.0.1 - - [04/Jul/2020 17:18:14] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 05:18:18 PM INFO:Starting file transfer to Ender5 Pro
+07/04/2020 05:18:20 PM INFO:127.0.0.1 - - [04/Jul/2020 17:18:20] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/04/2020 05:18:20 PM INFO:127.0.0.1 - - [04/Jul/2020 17:18:20] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 05:18:29 PM INFO:127.0.0.1 - - [04/Jul/2020 17:18:29] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/04/2020 05:18:29 PM INFO:127.0.0.1 - - [04/Jul/2020 17:18:29] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 05:18:39 PM INFO:Client has disconnected, removing from lists
+07/04/2020 05:18:42 PM INFO:New Client connecting. ip: ('127.0.0.1', 49794) port: <socket.socket fd=1068, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 49794)>
+07/04/2020 05:18:42 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2988
+07/04/2020 05:18:42 PM INFO:Client Listener started.
+07/04/2020 05:18:47 PM INFO:127.0.0.1 - - [04/Jul/2020 17:18:47] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 05:18:47 PM INFO:127.0.0.1 - - [04/Jul/2020 17:18:47] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 05:18:47 PM INFO:127.0.0.1 - - [04/Jul/2020 17:18:47] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 05:18:48 PM INFO:127.0.0.1 - - [04/Jul/2020 17:18:48] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 05:18:49 PM INFO:127.0.0.1 - - [04/Jul/2020 17:18:49] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 05:18:49 PM INFO:127.0.0.1 - - [04/Jul/2020 17:18:49] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/04/2020 05:18:49 PM INFO:127.0.0.1 - - [04/Jul/2020 17:18:49] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 05:21:00 PM INFO:127.0.0.1 - - [04/Jul/2020 17:21:00] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 05:21:00 PM INFO:127.0.0.1 - - [04/Jul/2020 17:21:00] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 05:21:00 PM INFO:127.0.0.1 - - [04/Jul/2020 17:21:00] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 06:09:28 PM INFO:Client has disconnected, removing from lists
+07/04/2020 07:57:51 PM INFO:New Client connecting. ip: ('127.0.0.1', 54731) port: <socket.socket fd=956, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 54731)>
+07/04/2020 07:57:51 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2989
+07/04/2020 07:57:51 PM INFO:Client Listener started.
+07/04/2020 07:57:56 PM INFO:Client has disconnected, removing from lists
+07/04/2020 07:57:58 PM INFO:New Client connecting. ip: ('127.0.0.1', 54736) port: <socket.socket fd=956, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 54736)>
+07/04/2020 07:57:58 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2990
+07/04/2020 07:57:58 PM INFO:Client Listener started.
+07/04/2020 07:58:10 PM INFO:127.0.0.1 - - [04/Jul/2020 19:58:10] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 07:58:10 PM INFO:127.0.0.1 - - [04/Jul/2020 19:58:10] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 07:58:12 PM INFO:127.0.0.1 - - [04/Jul/2020 19:58:12] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/04/2020 07:58:12 PM INFO:127.0.0.1 - - [04/Jul/2020 19:58:12] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 07:58:16 PM INFO:Starting file transfer to Ender5 Pro
+07/04/2020 07:58:18 PM INFO:127.0.0.1 - - [04/Jul/2020 19:58:18] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/04/2020 07:58:18 PM INFO:127.0.0.1 - - [04/Jul/2020 19:58:18] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 07:58:47 PM INFO:127.0.0.1 - - [04/Jul/2020 19:58:47] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/04/2020 07:58:47 PM INFO:127.0.0.1 - - [04/Jul/2020 19:58:47] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:03:44 PM INFO:127.0.0.1 - - [04/Jul/2020 20:03:44] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:03:44 PM INFO:127.0.0.1 - - [04/Jul/2020 20:03:44] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:03:44 PM INFO:127.0.0.1 - - [04/Jul/2020 20:03:44] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:03:44 PM INFO:127.0.0.1 - - [04/Jul/2020 20:03:44] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:03:45 PM INFO:127.0.0.1 - - [04/Jul/2020 20:03:45] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/04/2020 08:03:45 PM INFO:127.0.0.1 - - [04/Jul/2020 20:03:45] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:03:58 PM INFO:127.0.0.1 - - [04/Jul/2020 20:03:58] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:03:59 PM INFO:127.0.0.1 - - [04/Jul/2020 20:03:59] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:03:59 PM INFO:127.0.0.1 - - [04/Jul/2020 20:03:59] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:03:59 PM INFO:127.0.0.1 - - [04/Jul/2020 20:03:59] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:03:59 PM INFO:127.0.0.1 - - [04/Jul/2020 20:03:59] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:04:00 PM INFO:127.0.0.1 - - [04/Jul/2020 20:04:00] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:04:00 PM INFO:127.0.0.1 - - [04/Jul/2020 20:04:00] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:04:24 PM INFO:127.0.0.1 - - [04/Jul/2020 20:04:24] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:04:24 PM INFO:127.0.0.1 - - [04/Jul/2020 20:04:24] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:04:24 PM INFO:127.0.0.1 - - [04/Jul/2020 20:04:24] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:04:24 PM INFO:127.0.0.1 - - [04/Jul/2020 20:04:24] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:04:25 PM INFO:127.0.0.1 - - [04/Jul/2020 20:04:25] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:04:25 PM INFO:127.0.0.1 - - [04/Jul/2020 20:04:25] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:04:25 PM INFO:127.0.0.1 - - [04/Jul/2020 20:04:25] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:04:26 PM INFO:127.0.0.1 - - [04/Jul/2020 20:04:26] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:04:53 PM INFO:127.0.0.1 - - [04/Jul/2020 20:04:53] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:04:53 PM INFO:127.0.0.1 - - [04/Jul/2020 20:04:53] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:04:53 PM INFO:127.0.0.1 - - [04/Jul/2020 20:04:53] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:04:55 PM INFO:127.0.0.1 - - [04/Jul/2020 20:04:55] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/04/2020 08:04:55 PM INFO:127.0.0.1 - - [04/Jul/2020 20:04:55] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/04/2020 08:04:56 PM INFO:127.0.0.1 - - [04/Jul/2020 20:04:56] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:04:57 PM INFO:127.0.0.1 - - [04/Jul/2020 20:04:57] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/04/2020 08:04:57 PM INFO:127.0.0.1 - - [04/Jul/2020 20:04:57] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/04/2020 08:04:57 PM INFO:127.0.0.1 - - [04/Jul/2020 20:04:57] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/04/2020 08:04:57 PM INFO:127.0.0.1 - - [04/Jul/2020 20:04:57] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/04/2020 08:04:58 PM INFO:127.0.0.1 - - [04/Jul/2020 20:04:58] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:05:00 PM INFO:127.0.0.1 - - [04/Jul/2020 20:05:00] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/04/2020 08:05:00 PM INFO:127.0.0.1 - - [04/Jul/2020 20:05:00] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:05:04 PM INFO:127.0.0.1 - - [04/Jul/2020 20:05:04] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/04/2020 08:05:04 PM INFO:127.0.0.1 - - [04/Jul/2020 20:05:04] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:05:07 PM INFO:Client has disconnected, removing from lists
+07/04/2020 08:05:08 PM INFO:New Client connecting. ip: ('127.0.0.1', 54984) port: <socket.socket fd=1384, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 54984)>
+07/04/2020 08:05:08 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2991
+07/04/2020 08:05:08 PM INFO:Client Listener started.
+07/04/2020 08:05:12 PM INFO:127.0.0.1 - - [04/Jul/2020 20:05:12] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/04/2020 08:05:12 PM INFO:127.0.0.1 - - [04/Jul/2020 20:05:12] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/04/2020 08:05:13 PM INFO:127.0.0.1 - - [04/Jul/2020 20:05:13] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:05:15 PM INFO:127.0.0.1 - - [04/Jul/2020 20:05:15] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/04/2020 08:05:15 PM INFO:127.0.0.1 - - [04/Jul/2020 20:05:15] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:09:09 PM INFO:127.0.0.1 - - [04/Jul/2020 20:09:09] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:09:09 PM INFO:127.0.0.1 - - [04/Jul/2020 20:09:09] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:09:10 PM INFO:127.0.0.1 - - [04/Jul/2020 20:09:10] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:09:10 PM INFO:127.0.0.1 - - [04/Jul/2020 20:09:10] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/04/2020 08:09:10 PM INFO:127.0.0.1 - - [04/Jul/2020 20:09:10] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:09:37 PM INFO:127.0.0.1 - - [04/Jul/2020 20:09:37] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:09:37 PM INFO:127.0.0.1 - - [04/Jul/2020 20:09:37] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:09:37 PM INFO:127.0.0.1 - - [04/Jul/2020 20:09:37] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:17:32 PM INFO:127.0.0.1 - - [04/Jul/2020 20:17:32] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:17:33 PM INFO:127.0.0.1 - - [04/Jul/2020 20:17:33] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:17:34 PM INFO:Client has disconnected, removing from lists
+07/04/2020 08:17:35 PM INFO:New Client connecting. ip: ('127.0.0.1', 55519) port: <socket.socket fd=1288, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 55519)>
+07/04/2020 08:17:35 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2992
+07/04/2020 08:17:35 PM INFO:Client Listener started.
+07/04/2020 08:18:01 PM INFO:127.0.0.1 - - [04/Jul/2020 20:18:01] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:18:01 PM INFO:127.0.0.1 - - [04/Jul/2020 20:18:01] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:18:04 PM INFO:127.0.0.1 - - [04/Jul/2020 20:18:04] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/04/2020 08:18:04 PM INFO:127.0.0.1 - - [04/Jul/2020 20:18:04] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:18:09 PM INFO:Starting file transfer to Ender5 Pro
+07/04/2020 08:18:11 PM INFO:127.0.0.1 - - [04/Jul/2020 20:18:11] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/04/2020 08:18:11 PM INFO:127.0.0.1 - - [04/Jul/2020 20:18:11] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:18:29 PM INFO:127.0.0.1 - - [04/Jul/2020 20:18:29] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/04/2020 08:18:29 PM INFO:127.0.0.1 - - [04/Jul/2020 20:18:29] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:39:39 PM INFO:127.0.0.1 - - [04/Jul/2020 20:39:39] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/04/2020 08:39:39 PM INFO:127.0.0.1 - - [04/Jul/2020 20:39:39] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/04/2020 08:39:46 PM INFO:127.0.0.1 - - [04/Jul/2020 20:39:46] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/04/2020 08:39:46 PM INFO:127.0.0.1 - - [04/Jul/2020 20:39:46] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/04/2020 08:39:47 PM INFO:127.0.0.1 - - [04/Jul/2020 20:39:47] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:39:53 PM INFO:127.0.0.1 - - [04/Jul/2020 20:39:53] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:39:55 PM INFO:127.0.0.1 - - [04/Jul/2020 20:39:55] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 08:40:56 PM INFO:127.0.0.1 - - [04/Jul/2020 20:40:56] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 09:12:04 PM INFO:127.0.0.1 - - [04/Jul/2020 21:12:04] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 09:12:04 PM INFO:127.0.0.1 - - [04/Jul/2020 21:12:04] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 09:12:05 PM INFO:127.0.0.1 - - [04/Jul/2020 21:12:05] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 09:24:18 PM INFO:127.0.0.1 - - [04/Jul/2020 21:24:18] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 09:24:18 PM INFO:127.0.0.1 - - [04/Jul/2020 21:24:18] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 11:35:49 PM INFO:127.0.0.1 - - [04/Jul/2020 23:35:49] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/04/2020 11:35:49 PM INFO:127.0.0.1 - - [04/Jul/2020 23:35:49] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 12:10:37 AM INFO:127.0.0.1 - - [05/Jul/2020 00:10:37] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 12:10:37 AM INFO:127.0.0.1 - - [05/Jul/2020 00:10:37] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 12:10:37 AM INFO:127.0.0.1 - - [05/Jul/2020 00:10:37] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 12:10:38 AM INFO:127.0.0.1 - - [05/Jul/2020 00:10:38] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 12:10:43 AM INFO:127.0.0.1 - - [05/Jul/2020 00:10:43] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 12:48:06 AM INFO:Client has disconnected, removing from lists
+07/05/2020 01:31:12 PM INFO:Master server starting
+07/05/2020 01:31:12 PM INFO:Client Listener started.
+07/05/2020 01:31:12 PM INFO: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+07/05/2020 01:31:13 PM INFO:New Client connecting. ip: ('127.0.0.1', 57926) port: <socket.socket fd=932, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 57926)>
+07/05/2020 01:31:13 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2987
+07/05/2020 01:31:13 PM INFO:Client Listener started.
+07/05/2020 01:31:22 PM INFO:127.0.0.1 - - [05/Jul/2020 13:31:22] "[37mGET /login HTTP/1.1[0m" 200 -
+07/05/2020 01:31:22 PM INFO:127.0.0.1 - - [05/Jul/2020 13:31:22] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/05/2020 01:31:26 PM INFO:127.0.0.1 - - [05/Jul/2020 13:31:26] "[32mPOST /login HTTP/1.1[0m" 302 -
+07/05/2020 01:31:26 PM INFO:127.0.0.1 - - [05/Jul/2020 13:31:26] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/05/2020 01:31:26 PM INFO:127.0.0.1 - - [05/Jul/2020 13:31:26] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/05/2020 01:31:28 PM INFO:127.0.0.1 - - [05/Jul/2020 13:31:28] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 01:31:29 PM INFO:127.0.0.1 - - [05/Jul/2020 13:31:29] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 01:31:29 PM INFO:127.0.0.1 - - [05/Jul/2020 13:31:29] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 01:31:32 PM INFO:127.0.0.1 - - [05/Jul/2020 13:31:32] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 01:32:06 PM INFO:127.0.0.1 - - [05/Jul/2020 13:32:06] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 01:32:07 PM INFO:127.0.0.1 - - [05/Jul/2020 13:32:07] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 01:32:12 PM INFO:127.0.0.1 - - [05/Jul/2020 13:32:12] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 01:32:19 PM INFO:Starting file transfer to Ender5 Pro
+07/05/2020 01:32:21 PM INFO:127.0.0.1 - - [05/Jul/2020 13:32:21] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/05/2020 01:32:21 PM INFO:127.0.0.1 - - [05/Jul/2020 13:32:21] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 01:32:26 PM INFO:127.0.0.1 - - [05/Jul/2020 13:32:26] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/05/2020 01:32:26 PM INFO:127.0.0.1 - - [05/Jul/2020 13:32:26] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 01:32:35 PM INFO:Client has disconnected, removing from lists
+07/05/2020 01:32:36 PM INFO:New Client connecting. ip: ('127.0.0.1', 58017) port: <socket.socket fd=1204, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 58017)>
+07/05/2020 01:32:36 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2988
+07/05/2020 01:32:36 PM INFO:Client Listener started.
+07/05/2020 01:32:43 PM INFO:127.0.0.1 - - [05/Jul/2020 13:32:43] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 01:32:43 PM INFO:127.0.0.1 - - [05/Jul/2020 13:32:43] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 01:32:44 PM INFO:127.0.0.1 - - [05/Jul/2020 13:32:44] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 01:32:45 PM INFO:127.0.0.1 - - [05/Jul/2020 13:32:45] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/05/2020 01:32:45 PM INFO:127.0.0.1 - - [05/Jul/2020 13:32:45] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 01:39:01 PM INFO:127.0.0.1 - - [05/Jul/2020 13:39:01] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 01:39:01 PM INFO:127.0.0.1 - - [05/Jul/2020 13:39:01] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 01:39:02 PM INFO:127.0.0.1 - - [05/Jul/2020 13:39:02] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 01:39:05 PM INFO:127.0.0.1 - - [05/Jul/2020 13:39:05] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 01:39:05 PM INFO:127.0.0.1 - - [05/Jul/2020 13:39:05] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 01:49:34 PM INFO:127.0.0.1 - - [05/Jul/2020 13:49:34] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 01:49:35 PM INFO:127.0.0.1 - - [05/Jul/2020 13:49:35] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 01:49:36 PM INFO:127.0.0.1 - - [05/Jul/2020 13:49:36] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 01:49:36 PM INFO:127.0.0.1 - - [05/Jul/2020 13:49:36] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 01:49:37 PM INFO:127.0.0.1 - - [05/Jul/2020 13:49:37] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 01:49:37 PM INFO:127.0.0.1 - - [05/Jul/2020 13:49:37] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 01:49:38 PM INFO:127.0.0.1 - - [05/Jul/2020 13:49:38] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 01:49:38 PM INFO:127.0.0.1 - - [05/Jul/2020 13:49:38] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 01:49:38 PM INFO:127.0.0.1 - - [05/Jul/2020 13:49:38] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 01:49:39 PM INFO:127.0.0.1 - - [05/Jul/2020 13:49:39] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 01:49:39 PM INFO:127.0.0.1 - - [05/Jul/2020 13:49:39] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 01:49:40 PM INFO:127.0.0.1 - - [05/Jul/2020 13:49:40] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 01:57:48 PM INFO:127.0.0.1 - - [05/Jul/2020 13:57:48] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/05/2020 01:57:48 PM INFO:127.0.0.1 - - [05/Jul/2020 13:57:48] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 01:58:25 PM INFO:127.0.0.1 - - [05/Jul/2020 13:58:25] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/05/2020 01:58:25 PM INFO:127.0.0.1 - - [05/Jul/2020 13:58:25] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 01:58:26 PM INFO:127.0.0.1 - - [05/Jul/2020 13:58:26] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/05/2020 01:58:26 PM INFO:127.0.0.1 - - [05/Jul/2020 13:58:26] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 01:58:26 PM INFO:127.0.0.1 - - [05/Jul/2020 13:58:26] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 01:58:26 PM INFO:127.0.0.1 - - [05/Jul/2020 13:58:26] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 01:58:27 PM INFO:127.0.0.1 - - [05/Jul/2020 13:58:27] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 01:58:27 PM INFO:127.0.0.1 - - [05/Jul/2020 13:58:27] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/05/2020 01:58:27 PM INFO:127.0.0.1 - - [05/Jul/2020 13:58:27] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 01:58:28 PM INFO:127.0.0.1 - - [05/Jul/2020 13:58:28] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 01:58:28 PM INFO:127.0.0.1 - - [05/Jul/2020 13:58:28] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 01:58:28 PM INFO:127.0.0.1 - - [05/Jul/2020 13:58:28] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 01:58:28 PM INFO:127.0.0.1 - - [05/Jul/2020 13:58:28] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 03:41:32 PM INFO:Client has disconnected, removing from lists
+07/05/2020 06:20:53 PM INFO:Master server starting
+07/05/2020 06:20:53 PM INFO:Client Listener started.
+07/05/2020 06:20:54 PM INFO: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+07/05/2020 06:21:07 PM INFO:New Client connecting. ip: ('127.0.0.1', 51999) port: <socket.socket fd=944, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 51999)>
+07/05/2020 06:21:07 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2987
+07/05/2020 06:21:07 PM INFO:Client Listener started.
+07/05/2020 06:21:20 PM INFO:Client has disconnected, removing from lists
+07/05/2020 06:21:32 PM INFO:New Client connecting. ip: ('127.0.0.1', 52017) port: <socket.socket fd=1048, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 52017)>
+07/05/2020 06:21:32 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2988
+07/05/2020 06:21:32 PM INFO:Client Listener started.
+07/05/2020 06:21:39 PM INFO:127.0.0.1 - - [05/Jul/2020 18:21:39] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 06:21:39 PM INFO:127.0.0.1 - - [05/Jul/2020 18:21:39] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 06:21:39 PM INFO:127.0.0.1 - - [05/Jul/2020 18:21:39] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 06:21:40 PM INFO:127.0.0.1 - - [05/Jul/2020 18:21:40] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 06:21:41 PM INFO:127.0.0.1 - - [05/Jul/2020 18:21:41] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/05/2020 06:21:41 PM INFO:127.0.0.1 - - [05/Jul/2020 18:21:41] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/05/2020 06:21:42 PM INFO:127.0.0.1 - - [05/Jul/2020 18:21:42] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 06:21:47 PM INFO:Starting file transfer to Ender5 Pro
+07/05/2020 06:21:49 PM INFO:127.0.0.1 - - [05/Jul/2020 18:21:49] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/05/2020 06:21:49 PM INFO:127.0.0.1 - - [05/Jul/2020 18:21:49] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 06:22:00 PM INFO:127.0.0.1 - - [05/Jul/2020 18:22:00] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/05/2020 06:22:00 PM INFO:127.0.0.1 - - [05/Jul/2020 18:22:00] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 06:25:00 PM INFO:127.0.0.1 - - [05/Jul/2020 18:25:00] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 06:25:01 PM INFO:127.0.0.1 - - [05/Jul/2020 18:25:01] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 06:25:23 PM INFO:127.0.0.1 - - [05/Jul/2020 18:25:23] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 06:25:27 PM INFO:127.0.0.1 - - [05/Jul/2020 18:25:27] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 06:25:27 PM INFO:127.0.0.1 - - [05/Jul/2020 18:25:27] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 06:27:15 PM INFO:127.0.0.1 - - [05/Jul/2020 18:27:15] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 06:27:16 PM INFO:127.0.0.1 - - [05/Jul/2020 18:27:16] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 06:45:02 PM INFO:127.0.0.1 - - [05/Jul/2020 18:45:02] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 06:45:02 PM INFO:127.0.0.1 - - [05/Jul/2020 18:45:02] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 06:45:02 PM INFO:127.0.0.1 - - [05/Jul/2020 18:45:02] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 07:17:02 PM INFO:127.0.0.1 - - [05/Jul/2020 19:17:02] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 07:17:03 PM INFO:127.0.0.1 - - [05/Jul/2020 19:17:03] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 07:40:47 PM INFO:127.0.0.1 - - [05/Jul/2020 19:40:47] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/05/2020 07:40:47 PM INFO:127.0.0.1 - - [05/Jul/2020 19:40:47] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 07:55:54 PM INFO:Client has disconnected, removing from lists
+07/05/2020 09:31:48 PM INFO:Master server starting
+07/05/2020 09:31:48 PM INFO:Client Listener started.
+07/05/2020 09:31:48 PM INFO: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+07/05/2020 09:32:05 PM INFO:New Client connecting. ip: ('127.0.0.1', 59532) port: <socket.socket fd=948, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 59532)>
+07/05/2020 09:32:05 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2987
+07/05/2020 09:32:05 PM INFO:Client Listener started.
+07/05/2020 09:32:17 PM INFO:127.0.0.1 - - [05/Jul/2020 21:32:17] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/05/2020 09:32:17 PM INFO:127.0.0.1 - - [05/Jul/2020 21:32:17] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/05/2020 09:32:17 PM INFO:127.0.0.1 - - [05/Jul/2020 21:32:17] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/05/2020 09:32:17 PM INFO:127.0.0.1 - - [05/Jul/2020 21:32:17] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/05/2020 09:32:17 PM INFO:127.0.0.1 - - [05/Jul/2020 21:32:17] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/05/2020 09:32:17 PM INFO:127.0.0.1 - - [05/Jul/2020 21:32:17] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/05/2020 09:32:18 PM INFO:127.0.0.1 - - [05/Jul/2020 21:32:18] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 09:32:26 PM INFO:127.0.0.1 - - [05/Jul/2020 21:32:26] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/05/2020 09:32:26 PM INFO:127.0.0.1 - - [05/Jul/2020 21:32:26] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 09:33:49 PM INFO:Master server starting
+07/05/2020 09:33:49 PM INFO:Client Listener started.
+07/05/2020 09:33:49 PM INFO: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+07/05/2020 09:33:50 PM INFO:New Client connecting. ip: ('127.0.0.1', 59621) port: <socket.socket fd=908, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 59621)>
+07/05/2020 09:33:50 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2987
+07/05/2020 09:33:50 PM INFO:Client Listener started.
+07/05/2020 09:34:48 PM INFO:127.0.0.1 - - [05/Jul/2020 21:34:48] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 09:34:48 PM INFO:127.0.0.1 - - [05/Jul/2020 21:34:48] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 09:35:27 PM INFO:Master server starting
+07/05/2020 09:35:27 PM INFO:Client Listener started.
+07/05/2020 09:35:27 PM INFO: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+07/05/2020 09:35:30 PM INFO:New Client connecting. ip: ('127.0.0.1', 59689) port: <socket.socket fd=812, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 59689)>
+07/05/2020 09:35:30 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2987
+07/05/2020 09:35:30 PM INFO:Client Listener started.
+07/05/2020 09:35:35 PM INFO:127.0.0.1 - - [05/Jul/2020 21:35:35] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/05/2020 09:35:35 PM INFO:127.0.0.1 - - [05/Jul/2020 21:35:35] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/05/2020 09:35:36 PM INFO:127.0.0.1 - - [05/Jul/2020 21:35:36] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/05/2020 09:35:36 PM INFO:127.0.0.1 - - [05/Jul/2020 21:35:36] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/05/2020 09:35:36 PM INFO:127.0.0.1 - - [05/Jul/2020 21:35:36] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/05/2020 09:35:36 PM INFO:127.0.0.1 - - [05/Jul/2020 21:35:36] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/05/2020 09:35:36 PM INFO:127.0.0.1 - - [05/Jul/2020 21:35:36] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 09:35:38 PM INFO:127.0.0.1 - - [05/Jul/2020 21:35:38] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/05/2020 09:35:38 PM INFO:127.0.0.1 - - [05/Jul/2020 21:35:38] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 09:36:04 PM INFO:127.0.0.1 - - [05/Jul/2020 21:36:04] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/05/2020 09:36:04 PM INFO:127.0.0.1 - - [05/Jul/2020 21:36:04] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 09:39:31 PM INFO:Client has disconnected, removing from lists
+07/05/2020 09:39:50 PM INFO:Master server starting
+07/05/2020 09:39:50 PM INFO:Client Listener started.
+07/05/2020 09:39:50 PM INFO: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+07/05/2020 09:39:54 PM INFO:New Client connecting. ip: ('127.0.0.1', 59868) port: <socket.socket fd=928, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 59868)>
+07/05/2020 09:39:54 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2987
+07/05/2020 09:39:54 PM INFO:Client Listener started.
+07/05/2020 09:40:10 PM INFO:127.0.0.1 - - [05/Jul/2020 21:40:10] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/05/2020 09:40:10 PM INFO:127.0.0.1 - - [05/Jul/2020 21:40:10] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/05/2020 09:40:10 PM INFO:127.0.0.1 - - [05/Jul/2020 21:40:10] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/05/2020 09:40:10 PM INFO:127.0.0.1 - - [05/Jul/2020 21:40:10] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/05/2020 09:40:10 PM INFO:127.0.0.1 - - [05/Jul/2020 21:40:10] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/05/2020 09:40:10 PM INFO:127.0.0.1 - - [05/Jul/2020 21:40:10] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/05/2020 09:40:11 PM INFO:127.0.0.1 - - [05/Jul/2020 21:40:11] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 09:40:16 PM INFO:127.0.0.1 - - [05/Jul/2020 21:40:16] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/05/2020 09:40:16 PM INFO:127.0.0.1 - - [05/Jul/2020 21:40:16] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 09:42:39 PM INFO:Client has disconnected, removing from lists
+07/05/2020 09:42:42 PM INFO:Master server starting
+07/05/2020 09:42:42 PM INFO:Client Listener started.
+07/05/2020 09:42:42 PM INFO: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+07/05/2020 09:42:47 PM INFO:New Client connecting. ip: ('127.0.0.1', 59998) port: <socket.socket fd=904, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 59998)>
+07/05/2020 09:42:47 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2987
+07/05/2020 09:42:47 PM INFO:Client Listener started.
+07/05/2020 09:43:13 PM INFO:127.0.0.1 - - [05/Jul/2020 21:43:13] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/05/2020 09:43:13 PM INFO:127.0.0.1 - - [05/Jul/2020 21:43:13] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/05/2020 09:43:14 PM INFO:127.0.0.1 - - [05/Jul/2020 21:43:14] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 09:43:25 PM INFO:127.0.0.1 - - [05/Jul/2020 21:43:25] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/05/2020 09:43:25 PM INFO:127.0.0.1 - - [05/Jul/2020 21:43:25] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 09:45:53 PM INFO:Client has disconnected, removing from lists
+07/05/2020 09:46:00 PM INFO:Master server starting
+07/05/2020 09:46:00 PM INFO:Client Listener started.
+07/05/2020 09:46:00 PM INFO: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+07/05/2020 09:46:01 PM INFO:New Client connecting. ip: ('127.0.0.1', 60104) port: <socket.socket fd=644, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 60104)>
+07/05/2020 09:46:01 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2987
+07/05/2020 09:46:01 PM INFO:Client Listener started.
+07/05/2020 09:46:07 PM INFO:127.0.0.1 - - [05/Jul/2020 21:46:07] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/05/2020 09:46:07 PM INFO:127.0.0.1 - - [05/Jul/2020 21:46:07] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/05/2020 09:46:07 PM INFO:127.0.0.1 - - [05/Jul/2020 21:46:07] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 09:46:10 PM INFO:127.0.0.1 - - [05/Jul/2020 21:46:10] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 09:46:15 PM INFO:127.0.0.1 - - [05/Jul/2020 21:46:15] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/05/2020 09:46:15 PM INFO:127.0.0.1 - - [05/Jul/2020 21:46:15] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 09:46:43 PM INFO:Client has disconnected, removing from lists
+07/05/2020 09:46:46 PM INFO:New Client connecting. ip: ('127.0.0.1', 60148) port: <socket.socket fd=1032, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 60148)>
+07/05/2020 09:46:46 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2988
+07/05/2020 09:46:46 PM INFO:Client Listener started.
+07/05/2020 09:46:52 PM INFO:127.0.0.1 - - [05/Jul/2020 21:46:52] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/05/2020 09:46:52 PM INFO:127.0.0.1 - - [05/Jul/2020 21:46:52] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/05/2020 09:46:53 PM INFO:127.0.0.1 - - [05/Jul/2020 21:46:53] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/05/2020 09:46:53 PM INFO:127.0.0.1 - - [05/Jul/2020 21:46:53] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/05/2020 09:46:53 PM INFO:127.0.0.1 - - [05/Jul/2020 21:46:53] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/05/2020 09:46:54 PM INFO:127.0.0.1 - - [05/Jul/2020 21:46:54] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/05/2020 09:46:54 PM INFO:127.0.0.1 - - [05/Jul/2020 21:46:54] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/05/2020 09:46:54 PM INFO:127.0.0.1 - - [05/Jul/2020 21:46:54] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/05/2020 09:46:54 PM INFO:127.0.0.1 - - [05/Jul/2020 21:46:54] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/05/2020 09:46:54 PM INFO:127.0.0.1 - - [05/Jul/2020 21:46:54] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/05/2020 09:46:57 PM INFO:127.0.0.1 - - [05/Jul/2020 21:46:57] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 09:47:02 PM INFO:127.0.0.1 - - [05/Jul/2020 21:47:02] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/05/2020 09:47:02 PM INFO:127.0.0.1 - - [05/Jul/2020 21:47:02] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 09:47:44 PM INFO:127.0.0.1 - - [05/Jul/2020 21:47:44] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/05/2020 09:47:44 PM INFO:127.0.0.1 - - [05/Jul/2020 21:47:44] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 09:59:38 PM INFO:Client has disconnected, removing from lists
+07/05/2020 10:00:05 PM INFO:New Client connecting. ip: ('127.0.0.1', 60617) port: <socket.socket fd=1180, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 60617)>
+07/05/2020 10:00:05 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2989
+07/05/2020 10:00:05 PM INFO:Client Listener started.
+07/05/2020 10:00:38 PM INFO:Client has disconnected, removing from lists
+07/05/2020 10:00:40 PM INFO:New Client connecting. ip: ('127.0.0.1', 60638) port: <socket.socket fd=568, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 60638)>
+07/05/2020 10:00:40 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2990
+07/05/2020 10:00:40 PM INFO:Client Listener started.
+07/05/2020 10:00:58 PM INFO:127.0.0.1 - - [05/Jul/2020 22:00:58] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/05/2020 10:00:58 PM INFO:127.0.0.1 - - [05/Jul/2020 22:00:58] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:04:29 PM INFO:Client has disconnected, removing from lists
+07/05/2020 10:04:32 PM INFO:New Client connecting. ip: ('127.0.0.1', 60766) port: <socket.socket fd=1072, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 60766)>
+07/05/2020 10:04:32 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2991
+07/05/2020 10:04:32 PM INFO:Client Listener started.
+07/05/2020 10:04:45 PM INFO:127.0.0.1 - - [05/Jul/2020 22:04:45] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/05/2020 10:04:45 PM INFO:127.0.0.1 - - [05/Jul/2020 22:04:45] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:06:00 PM INFO:127.0.0.1 - - [05/Jul/2020 22:06:00] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/05/2020 10:06:00 PM INFO:127.0.0.1 - - [05/Jul/2020 22:06:00] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:06:11 PM INFO:127.0.0.1 - - [05/Jul/2020 22:06:11] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/05/2020 10:06:11 PM INFO:127.0.0.1 - - [05/Jul/2020 22:06:11] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:06:57 PM INFO:127.0.0.1 - - [05/Jul/2020 22:06:57] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/05/2020 10:06:57 PM INFO:127.0.0.1 - - [05/Jul/2020 22:06:57] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:07:05 PM INFO:127.0.0.1 - - [05/Jul/2020 22:07:05] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/05/2020 10:07:05 PM INFO:127.0.0.1 - - [05/Jul/2020 22:07:05] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:09:30 PM INFO:Client has disconnected, removing from lists
+07/05/2020 10:09:34 PM INFO:New Client connecting. ip: ('127.0.0.1', 61022) port: <socket.socket fd=1100, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 61022)>
+07/05/2020 10:09:34 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2992
+07/05/2020 10:09:34 PM INFO:Client Listener started.
+07/05/2020 10:09:52 PM INFO:127.0.0.1 - - [05/Jul/2020 22:09:52] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:09:52 PM INFO:127.0.0.1 - - [05/Jul/2020 22:09:52] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:09:55 PM INFO:127.0.0.1 - - [05/Jul/2020 22:09:55] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/05/2020 10:09:55 PM INFO:127.0.0.1 - - [05/Jul/2020 22:09:55] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:44:57 PM INFO:127.0.0.1 - - [05/Jul/2020 22:44:57] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:44:57 PM INFO:127.0.0.1 - - [05/Jul/2020 22:44:57] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:44:58 PM INFO:127.0.0.1 - - [05/Jul/2020 22:44:58] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/05/2020 10:44:58 PM INFO:127.0.0.1 - - [05/Jul/2020 22:44:58] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:45:02 PM INFO:Starting file transfer to Ender5 Pro
+07/05/2020 10:45:04 PM INFO:127.0.0.1 - - [05/Jul/2020 22:45:04] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/05/2020 10:45:04 PM INFO:127.0.0.1 - - [05/Jul/2020 22:45:04] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:45:07 PM INFO:127.0.0.1 - - [05/Jul/2020 22:45:07] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/05/2020 10:45:07 PM INFO:127.0.0.1 - - [05/Jul/2020 22:45:07] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:49:51 PM INFO:127.0.0.1 - - [05/Jul/2020 22:49:51] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:49:52 PM INFO:127.0.0.1 - - [05/Jul/2020 22:49:52] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:49:52 PM INFO:127.0.0.1 - - [05/Jul/2020 22:49:52] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:49:52 PM INFO:127.0.0.1 - - [05/Jul/2020 22:49:52] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:49:53 PM INFO:127.0.0.1 - - [05/Jul/2020 22:49:53] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:49:53 PM INFO:127.0.0.1 - - [05/Jul/2020 22:49:53] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:49:54 PM INFO:127.0.0.1 - - [05/Jul/2020 22:49:54] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:50:11 PM INFO:127.0.0.1 - - [05/Jul/2020 22:50:11] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:50:11 PM INFO:127.0.0.1 - - [05/Jul/2020 22:50:11] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:50:11 PM INFO:127.0.0.1 - - [05/Jul/2020 22:50:11] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:50:11 PM INFO:127.0.0.1 - - [05/Jul/2020 22:50:11] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:51:11 PM INFO:Client has disconnected, removing from lists
+07/05/2020 10:52:24 PM INFO:New Client connecting. ip: ('127.0.0.1', 62825) port: <socket.socket fd=988, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 62825)>
+07/05/2020 10:52:24 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2993
+07/05/2020 10:52:24 PM INFO:Client Listener started.
+07/05/2020 10:52:40 PM INFO:127.0.0.1 - - [05/Jul/2020 22:52:40] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:52:40 PM INFO:127.0.0.1 - - [05/Jul/2020 22:52:40] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:52:41 PM INFO:127.0.0.1 - - [05/Jul/2020 22:52:41] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:52:41 PM INFO:127.0.0.1 - - [05/Jul/2020 22:52:41] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:52:42 PM INFO:127.0.0.1 - - [05/Jul/2020 22:52:42] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:52:53 PM INFO:127.0.0.1 - - [05/Jul/2020 22:52:53] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:52:54 PM INFO:127.0.0.1 - - [05/Jul/2020 22:52:54] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:52:54 PM INFO:127.0.0.1 - - [05/Jul/2020 22:52:54] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:52:54 PM INFO:127.0.0.1 - - [05/Jul/2020 22:52:54] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:52:54 PM INFO:127.0.0.1 - - [05/Jul/2020 22:52:54] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:52:55 PM INFO:127.0.0.1 - - [05/Jul/2020 22:52:55] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:52:57 PM INFO:127.0.0.1 - - [05/Jul/2020 22:52:57] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:52:58 PM INFO:127.0.0.1 - - [05/Jul/2020 22:52:58] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:52:58 PM INFO:127.0.0.1 - - [05/Jul/2020 22:52:58] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/05/2020 10:52:58 PM INFO:127.0.0.1 - - [05/Jul/2020 22:52:58] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/05/2020 10:52:59 PM INFO:127.0.0.1 - - [05/Jul/2020 22:52:59] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:53:29 PM INFO:127.0.0.1 - - [05/Jul/2020 22:53:29] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:53:29 PM INFO:127.0.0.1 - - [05/Jul/2020 22:53:29] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:53:31 PM INFO:Client has disconnected, removing from lists
+07/05/2020 10:53:32 PM INFO:127.0.0.1 - - [05/Jul/2020 22:53:32] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/05/2020 10:53:32 PM INFO:127.0.0.1 - - [05/Jul/2020 22:53:32] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/05/2020 10:53:34 PM INFO:New Client connecting. ip: ('127.0.0.1', 62895) port: <socket.socket fd=1484, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 62895)>
+07/05/2020 10:53:34 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2994
+07/05/2020 10:53:34 PM INFO:Client Listener started.
+07/05/2020 10:53:55 PM INFO:127.0.0.1 - - [05/Jul/2020 22:53:55] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/05/2020 10:53:55 PM INFO:127.0.0.1 - - [05/Jul/2020 22:53:55] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/05/2020 10:53:55 PM INFO:127.0.0.1 - - [05/Jul/2020 22:53:55] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:53:57 PM INFO:127.0.0.1 - - [05/Jul/2020 22:53:57] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:53:58 PM INFO:127.0.0.1 - - [05/Jul/2020 22:53:58] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/05/2020 10:53:58 PM INFO:127.0.0.1 - - [05/Jul/2020 22:53:58] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:54:01 PM INFO:Starting file transfer to Ender5 Pro
+07/05/2020 10:54:03 PM INFO:127.0.0.1 - - [05/Jul/2020 22:54:03] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/05/2020 10:54:04 PM INFO:127.0.0.1 - - [05/Jul/2020 22:54:04] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:54:12 PM INFO:127.0.0.1 - - [05/Jul/2020 22:54:12] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/05/2020 10:54:12 PM INFO:127.0.0.1 - - [05/Jul/2020 22:54:12] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:54:16 PM INFO:Client has disconnected, removing from lists
+07/05/2020 10:54:18 PM INFO:New Client connecting. ip: ('127.0.0.1', 62948) port: <socket.socket fd=936, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 62948)>
+07/05/2020 10:54:18 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2995
+07/05/2020 10:54:18 PM INFO:Client Listener started.
+07/05/2020 10:54:27 PM INFO:127.0.0.1 - - [05/Jul/2020 22:54:27] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:54:28 PM INFO:127.0.0.1 - - [05/Jul/2020 22:54:28] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 10:54:29 PM INFO:127.0.0.1 - - [05/Jul/2020 22:54:29] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/05/2020 10:54:29 PM INFO:127.0.0.1 - - [05/Jul/2020 22:54:29] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 11:08:31 PM INFO:127.0.0.1 - - [05/Jul/2020 23:08:31] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 11:08:31 PM INFO:127.0.0.1 - - [05/Jul/2020 23:08:31] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 11:08:31 PM INFO:127.0.0.1 - - [05/Jul/2020 23:08:31] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 11:08:32 PM INFO:127.0.0.1 - - [05/Jul/2020 23:08:32] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 11:09:41 PM INFO:Client has disconnected, removing from lists
+07/05/2020 11:10:45 PM INFO:New Client connecting. ip: ('127.0.0.1', 63531) port: <socket.socket fd=1492, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 63531)>
+07/05/2020 11:10:45 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2996
+07/05/2020 11:10:45 PM INFO:Client Listener started.
+07/05/2020 11:11:14 PM INFO:127.0.0.1 - - [05/Jul/2020 23:11:14] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 11:11:14 PM INFO:127.0.0.1 - - [05/Jul/2020 23:11:14] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 11:11:14 PM INFO:127.0.0.1 - - [05/Jul/2020 23:11:14] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 11:11:15 PM INFO:127.0.0.1 - - [05/Jul/2020 23:11:15] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/05/2020 11:11:15 PM INFO:127.0.0.1 - - [05/Jul/2020 23:11:15] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/05/2020 11:11:16 PM INFO:127.0.0.1 - - [05/Jul/2020 23:11:16] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/05/2020 11:11:16 PM INFO:127.0.0.1 - - [05/Jul/2020 23:11:16] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/05/2020 11:11:16 PM INFO:127.0.0.1 - - [05/Jul/2020 23:11:16] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/05/2020 11:11:16 PM INFO:127.0.0.1 - - [05/Jul/2020 23:11:16] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/05/2020 11:11:17 PM INFO:127.0.0.1 - - [05/Jul/2020 23:11:17] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 11:13:01 PM INFO:Starting file transfer to Ender5 Pro
+07/05/2020 11:13:03 PM INFO:127.0.0.1 - - [05/Jul/2020 23:13:03] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/05/2020 11:13:03 PM INFO:127.0.0.1 - - [05/Jul/2020 23:13:03] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 11:13:05 PM INFO:127.0.0.1 - - [05/Jul/2020 23:13:05] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/05/2020 11:13:05 PM INFO:127.0.0.1 - - [05/Jul/2020 23:13:05] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 11:13:14 PM INFO:Client has disconnected, removing from lists
+07/05/2020 11:13:16 PM INFO:New Client connecting. ip: ('127.0.0.1', 63638) port: <socket.socket fd=1144, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 63638)>
+07/05/2020 11:13:16 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2997
+07/05/2020 11:13:16 PM INFO:Client Listener started.
+07/05/2020 11:13:19 PM INFO:127.0.0.1 - - [05/Jul/2020 23:13:19] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 11:13:19 PM INFO:127.0.0.1 - - [05/Jul/2020 23:13:19] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 11:13:23 PM INFO:127.0.0.1 - - [05/Jul/2020 23:13:23] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 11:13:23 PM INFO:127.0.0.1 - - [05/Jul/2020 23:13:23] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 11:13:24 PM INFO:127.0.0.1 - - [05/Jul/2020 23:13:24] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 11:13:24 PM INFO:127.0.0.1 - - [05/Jul/2020 23:13:24] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 11:13:26 PM INFO:127.0.0.1 - - [05/Jul/2020 23:13:26] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/05/2020 11:13:26 PM INFO:127.0.0.1 - - [05/Jul/2020 23:13:26] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 11:13:30 PM INFO:127.0.0.1 - - [05/Jul/2020 23:13:30] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 11:13:30 PM INFO:127.0.0.1 - - [05/Jul/2020 23:13:30] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 11:13:30 PM INFO:127.0.0.1 - - [05/Jul/2020 23:13:30] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 11:13:31 PM INFO:127.0.0.1 - - [05/Jul/2020 23:13:31] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 11:13:31 PM INFO:127.0.0.1 - - [05/Jul/2020 23:13:31] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 11:14:47 PM INFO:127.0.0.1 - - [05/Jul/2020 23:14:47] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/05/2020 11:14:47 PM INFO:127.0.0.1 - - [05/Jul/2020 23:14:47] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 11:16:06 PM INFO:Client has disconnected, removing from lists
+07/05/2020 11:32:04 PM INFO:Master server starting
+07/05/2020 11:32:04 PM INFO:Client Listener started.
+07/05/2020 11:32:04 PM INFO: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+07/05/2020 11:32:07 PM INFO:127.0.0.1 - - [05/Jul/2020 23:32:07] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/05/2020 11:32:07 PM INFO:127.0.0.1 - - [05/Jul/2020 23:32:07] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/05/2020 11:32:08 PM INFO:127.0.0.1 - - [05/Jul/2020 23:32:08] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/05/2020 11:32:08 PM INFO:127.0.0.1 - - [05/Jul/2020 23:32:08] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/05/2020 11:32:08 PM INFO:127.0.0.1 - - [05/Jul/2020 23:32:08] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/05/2020 11:32:08 PM INFO:127.0.0.1 - - [05/Jul/2020 23:32:08] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/05/2020 11:32:10 PM INFO:New Client connecting. ip: ('127.0.0.1', 64361) port: <socket.socket fd=1016, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 64361)>
+07/05/2020 11:32:10 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2987
+07/05/2020 11:32:10 PM INFO:Client Listener started.
+07/05/2020 11:32:12 PM INFO:127.0.0.1 - - [05/Jul/2020 23:32:12] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/05/2020 11:32:12 PM INFO:127.0.0.1 - - [05/Jul/2020 23:32:12] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/05/2020 11:32:12 PM INFO:127.0.0.1 - - [05/Jul/2020 23:32:12] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/05/2020 11:32:12 PM INFO:127.0.0.1 - - [05/Jul/2020 23:32:12] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/05/2020 11:32:13 PM INFO:127.0.0.1 - - [05/Jul/2020 23:32:13] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 11:32:14 PM INFO:127.0.0.1 - - [05/Jul/2020 23:32:14] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 11:32:14 PM INFO:127.0.0.1 - - [05/Jul/2020 23:32:14] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 11:32:14 PM INFO:127.0.0.1 - - [05/Jul/2020 23:32:14] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 11:32:15 PM INFO:127.0.0.1 - - [05/Jul/2020 23:32:15] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 11:32:15 PM INFO:127.0.0.1 - - [05/Jul/2020 23:32:15] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 11:32:16 PM INFO:127.0.0.1 - - [05/Jul/2020 23:32:16] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 11:32:16 PM INFO:127.0.0.1 - - [05/Jul/2020 23:32:16] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 11:32:17 PM INFO:127.0.0.1 - - [05/Jul/2020 23:32:17] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 11:32:17 PM INFO:127.0.0.1 - - [05/Jul/2020 23:32:17] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 11:32:17 PM INFO:127.0.0.1 - - [05/Jul/2020 23:32:17] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 11:32:18 PM INFO:127.0.0.1 - - [05/Jul/2020 23:32:18] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 11:32:18 PM INFO:127.0.0.1 - - [05/Jul/2020 23:32:18] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/05/2020 11:32:18 PM INFO:127.0.0.1 - - [05/Jul/2020 23:32:18] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 11:32:20 PM INFO:127.0.0.1 - - [05/Jul/2020 23:32:20] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/05/2020 11:32:20 PM INFO:127.0.0.1 - - [05/Jul/2020 23:32:20] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:30:34 PM INFO:Master server starting
+07/06/2020 05:30:34 PM INFO:Client Listener started.
+07/06/2020 05:30:34 PM INFO: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+07/06/2020 05:30:35 PM INFO:New Client connecting. ip: ('127.0.0.1', 56081) port: <socket.socket fd=660, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 56081)>
+07/06/2020 05:30:35 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2987
+07/06/2020 05:30:35 PM INFO:Client Listener started.
+07/06/2020 05:30:41 PM INFO:Client has disconnected, removing from lists
+07/06/2020 05:30:42 PM INFO:New Client connecting. ip: ('127.0.0.1', 56092) port: <socket.socket fd=968, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 56092)>
+07/06/2020 05:30:42 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2988
+07/06/2020 05:30:42 PM INFO:Client Listener started.
+07/06/2020 05:30:48 PM INFO:127.0.0.1 - - [06/Jul/2020 17:30:48] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:30:48 PM INFO:127.0.0.1 - - [06/Jul/2020 17:30:48] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:30:48 PM INFO:127.0.0.1 - - [06/Jul/2020 17:30:48] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:30:48 PM INFO:127.0.0.1 - - [06/Jul/2020 17:30:48] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:30:49 PM INFO:127.0.0.1 - - [06/Jul/2020 17:30:49] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:30:53 PM INFO:Starting file transfer to Ender5 Pro
+07/06/2020 05:30:55 PM INFO:127.0.0.1 - - [06/Jul/2020 17:30:55] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/06/2020 05:30:55 PM INFO:127.0.0.1 - - [06/Jul/2020 17:30:55] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:31:03 PM INFO:127.0.0.1 - - [06/Jul/2020 17:31:03] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/06/2020 05:31:03 PM INFO:127.0.0.1 - - [06/Jul/2020 17:31:03] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:31:08 PM INFO:127.0.0.1 - - [06/Jul/2020 17:31:08] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/06/2020 05:31:08 PM INFO:127.0.0.1 - - [06/Jul/2020 17:31:08] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:33:51 PM INFO:127.0.0.1 - - [06/Jul/2020 17:33:51] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:33:51 PM INFO:127.0.0.1 - - [06/Jul/2020 17:33:51] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:33:52 PM INFO:127.0.0.1 - - [06/Jul/2020 17:33:52] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:33:52 PM INFO:127.0.0.1 - - [06/Jul/2020 17:33:52] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:33:52 PM INFO:127.0.0.1 - - [06/Jul/2020 17:33:52] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:33:53 PM INFO:127.0.0.1 - - [06/Jul/2020 17:33:53] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:33:53 PM INFO:127.0.0.1 - - [06/Jul/2020 17:33:53] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:33:53 PM INFO:127.0.0.1 - - [06/Jul/2020 17:33:53] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:33:53 PM INFO:127.0.0.1 - - [06/Jul/2020 17:33:53] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:33:54 PM INFO:127.0.0.1 - - [06/Jul/2020 17:33:54] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:33:54 PM INFO:127.0.0.1 - - [06/Jul/2020 17:33:54] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:33:55 PM INFO:127.0.0.1 - - [06/Jul/2020 17:33:55] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:33:55 PM INFO:127.0.0.1 - - [06/Jul/2020 17:33:55] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:33:55 PM INFO:127.0.0.1 - - [06/Jul/2020 17:33:55] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:33:55 PM INFO:127.0.0.1 - - [06/Jul/2020 17:33:55] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:33:56 PM INFO:127.0.0.1 - - [06/Jul/2020 17:33:56] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:33:57 PM INFO:127.0.0.1 - - [06/Jul/2020 17:33:57] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:33:57 PM INFO:127.0.0.1 - - [06/Jul/2020 17:33:57] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:34:20 PM INFO:127.0.0.1 - - [06/Jul/2020 17:34:20] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:34:23 PM INFO:127.0.0.1 - - [06/Jul/2020 17:34:23] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:34:25 PM INFO:127.0.0.1 - - [06/Jul/2020 17:34:25] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:34:40 PM INFO:127.0.0.1 - - [06/Jul/2020 17:34:40] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:34:41 PM INFO:127.0.0.1 - - [06/Jul/2020 17:34:41] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:34:42 PM INFO:127.0.0.1 - - [06/Jul/2020 17:34:42] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:34:43 PM INFO:127.0.0.1 - - [06/Jul/2020 17:34:43] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:36:15 PM INFO:Client has disconnected, removing from lists
+07/06/2020 05:37:07 PM INFO:New Client connecting. ip: ('127.0.0.1', 56380) port: <socket.socket fd=1276, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 56380)>
+07/06/2020 05:37:07 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2989
+07/06/2020 05:37:07 PM INFO:Client Listener started.
+07/06/2020 05:37:18 PM INFO:Master server starting
+07/06/2020 05:37:18 PM INFO:Client Listener started.
+07/06/2020 05:37:18 PM INFO: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+07/06/2020 05:37:20 PM INFO:New Client connecting. ip: ('127.0.0.1', 56402) port: <socket.socket fd=832, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 56402)>
+07/06/2020 05:37:20 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2987
+07/06/2020 05:37:20 PM INFO:Client Listener started.
+07/06/2020 05:39:01 PM INFO:127.0.0.1 - - [06/Jul/2020 17:39:01] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:39:01 PM INFO:127.0.0.1 - - [06/Jul/2020 17:39:01] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:39:06 PM INFO:Starting file transfer to Ender5 Pro
+07/06/2020 05:39:09 PM INFO:127.0.0.1 - - [06/Jul/2020 17:39:09] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/06/2020 05:39:09 PM INFO:127.0.0.1 - - [06/Jul/2020 17:39:09] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:39:15 PM INFO:127.0.0.1 - - [06/Jul/2020 17:39:15] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/06/2020 05:39:15 PM INFO:127.0.0.1 - - [06/Jul/2020 17:39:15] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:42:34 PM INFO:127.0.0.1 - - [06/Jul/2020 17:42:34] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:42:35 PM INFO:127.0.0.1 - - [06/Jul/2020 17:42:35] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:44:37 PM INFO:127.0.0.1 - - [06/Jul/2020 17:44:37] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/06/2020 05:44:37 PM INFO:127.0.0.1 - - [06/Jul/2020 17:44:37] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:51:34 PM INFO:127.0.0.1 - - [06/Jul/2020 17:51:34] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:51:35 PM INFO:127.0.0.1 - - [06/Jul/2020 17:51:35] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:51:35 PM INFO:127.0.0.1 - - [06/Jul/2020 17:51:35] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:51:35 PM INFO:127.0.0.1 - - [06/Jul/2020 17:51:35] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:51:35 PM INFO:127.0.0.1 - - [06/Jul/2020 17:51:35] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:52:55 PM INFO:127.0.0.1 - - [06/Jul/2020 17:52:55] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:52:55 PM INFO:127.0.0.1 - - [06/Jul/2020 17:52:55] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:52:56 PM INFO:127.0.0.1 - - [06/Jul/2020 17:52:56] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/06/2020 05:52:56 PM INFO:127.0.0.1 - - [06/Jul/2020 17:52:56] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/06/2020 05:52:56 PM INFO:127.0.0.1 - - [06/Jul/2020 17:52:56] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:52:58 PM INFO:127.0.0.1 - - [06/Jul/2020 17:52:58] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/06/2020 05:52:58 PM INFO:127.0.0.1 - - [06/Jul/2020 17:52:58] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:53:02 PM INFO:127.0.0.1 - - [06/Jul/2020 17:53:02] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/06/2020 05:53:02 PM INFO:127.0.0.1 - - [06/Jul/2020 17:53:02] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:53:03 PM INFO:127.0.0.1 - - [06/Jul/2020 17:53:03] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:53:05 PM INFO:127.0.0.1 - - [06/Jul/2020 17:53:05] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/06/2020 05:53:05 PM INFO:127.0.0.1 - - [06/Jul/2020 17:53:05] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:53:05 PM INFO:127.0.0.1 - - [06/Jul/2020 17:53:05] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/06/2020 05:53:05 PM INFO:127.0.0.1 - - [06/Jul/2020 17:53:05] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:53:06 PM INFO:127.0.0.1 - - [06/Jul/2020 17:53:06] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/06/2020 05:53:06 PM INFO:127.0.0.1 - - [06/Jul/2020 17:53:06] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:53:06 PM INFO:127.0.0.1 - - [06/Jul/2020 17:53:06] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/06/2020 05:53:06 PM INFO:127.0.0.1 - - [06/Jul/2020 17:53:06] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:53:15 PM INFO:Client has disconnected, removing from lists
+07/06/2020 05:53:19 PM INFO:New Client connecting. ip: ('127.0.0.1', 57023) port: <socket.socket fd=1236, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 57023)>
+07/06/2020 05:53:19 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2988
+07/06/2020 05:53:19 PM INFO:Client Listener started.
+07/06/2020 05:53:25 PM INFO:127.0.0.1 - - [06/Jul/2020 17:53:25] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:53:25 PM INFO:127.0.0.1 - - [06/Jul/2020 17:53:25] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:53:26 PM INFO:127.0.0.1 - - [06/Jul/2020 17:53:26] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:53:27 PM INFO:127.0.0.1 - - [06/Jul/2020 17:53:27] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:53:29 PM INFO:127.0.0.1 - - [06/Jul/2020 17:53:29] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/06/2020 05:53:29 PM INFO:127.0.0.1 - - [06/Jul/2020 17:53:29] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:56:27 PM INFO:127.0.0.1 - - [06/Jul/2020 17:56:27] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 05:56:27 PM INFO:127.0.0.1 - - [06/Jul/2020 17:56:27] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 06:28:41 PM INFO:127.0.0.1 - - [06/Jul/2020 18:28:41] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 06:28:41 PM INFO:127.0.0.1 - - [06/Jul/2020 18:28:41] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 06:35:32 PM INFO:127.0.0.1 - - [06/Jul/2020 18:35:32] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 06:35:32 PM INFO:127.0.0.1 - - [06/Jul/2020 18:35:32] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 06:35:34 PM INFO:127.0.0.1 - - [06/Jul/2020 18:35:34] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 06:53:55 PM INFO:127.0.0.1 - - [06/Jul/2020 18:53:55] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 06:53:55 PM INFO:127.0.0.1 - - [06/Jul/2020 18:53:55] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 06:53:56 PM INFO:127.0.0.1 - - [06/Jul/2020 18:53:56] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 06:53:57 PM INFO:127.0.0.1 - - [06/Jul/2020 18:53:57] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 07:10:30 PM INFO:127.0.0.1 - - [06/Jul/2020 19:10:30] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 07:10:31 PM INFO:127.0.0.1 - - [06/Jul/2020 19:10:31] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 07:25:27 PM INFO:127.0.0.1 - - [06/Jul/2020 19:25:27] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 07:25:27 PM INFO:127.0.0.1 - - [06/Jul/2020 19:25:27] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 08:05:41 PM INFO:127.0.0.1 - - [06/Jul/2020 20:05:41] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 08:05:42 PM INFO:127.0.0.1 - - [06/Jul/2020 20:05:42] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 08:05:42 PM INFO:127.0.0.1 - - [06/Jul/2020 20:05:42] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 08:06:44 PM INFO:Starting file transfer to Ender5 Pro
+07/06/2020 08:06:46 PM INFO:127.0.0.1 - - [06/Jul/2020 20:06:46] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/06/2020 08:06:46 PM INFO:127.0.0.1 - - [06/Jul/2020 20:06:46] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 08:06:56 PM INFO:127.0.0.1 - - [06/Jul/2020 20:06:56] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/06/2020 08:06:56 PM INFO:127.0.0.1 - - [06/Jul/2020 20:06:56] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 08:07:23 PM INFO:127.0.0.1 - - [06/Jul/2020 20:07:23] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 08:07:23 PM INFO:127.0.0.1 - - [06/Jul/2020 20:07:23] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 08:07:23 PM INFO:127.0.0.1 - - [06/Jul/2020 20:07:23] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 08:07:32 PM INFO:127.0.0.1 - - [06/Jul/2020 20:07:32] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/06/2020 08:07:32 PM INFO:127.0.0.1 - - [06/Jul/2020 20:07:32] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 08:07:32 PM INFO:127.0.0.1 - - [06/Jul/2020 20:07:32] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/06/2020 08:07:32 PM INFO:127.0.0.1 - - [06/Jul/2020 20:07:32] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 08:07:32 PM INFO:127.0.0.1 - - [06/Jul/2020 20:07:32] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/06/2020 08:07:32 PM INFO:127.0.0.1 - - [06/Jul/2020 20:07:32] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 08:07:33 PM INFO:127.0.0.1 - - [06/Jul/2020 20:07:33] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 08:07:33 PM INFO:127.0.0.1 - - [06/Jul/2020 20:07:33] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 08:07:33 PM INFO:127.0.0.1 - - [06/Jul/2020 20:07:33] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 08:07:34 PM INFO:127.0.0.1 - - [06/Jul/2020 20:07:34] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 08:07:34 PM INFO:127.0.0.1 - - [06/Jul/2020 20:07:34] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 08:07:34 PM INFO:127.0.0.1 - - [06/Jul/2020 20:07:34] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 08:07:36 PM INFO:Client has disconnected, removing from lists
+07/06/2020 08:07:39 PM INFO:New Client connecting. ip: ('127.0.0.1', 58738) port: <socket.socket fd=1284, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 58738)>
+07/06/2020 08:07:39 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2989
+07/06/2020 08:07:39 PM INFO:Client Listener started.
+07/06/2020 08:07:54 PM INFO:127.0.0.1 - - [06/Jul/2020 20:07:54] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 08:07:56 PM INFO:127.0.0.1 - - [06/Jul/2020 20:07:56] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/06/2020 08:07:56 PM INFO:127.0.0.1 - - [06/Jul/2020 20:07:56] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 08:09:39 PM INFO:127.0.0.1 - - [06/Jul/2020 20:09:39] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 08:09:40 PM INFO:127.0.0.1 - - [06/Jul/2020 20:09:40] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 08:27:46 PM INFO:127.0.0.1 - - [06/Jul/2020 20:27:46] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 08:27:46 PM INFO:127.0.0.1 - - [06/Jul/2020 20:27:46] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 08:27:47 PM INFO:127.0.0.1 - - [06/Jul/2020 20:27:47] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 09:39:03 PM INFO:127.0.0.1 - - [06/Jul/2020 21:39:03] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 09:39:03 PM INFO:127.0.0.1 - - [06/Jul/2020 21:39:03] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 09:39:04 PM INFO:127.0.0.1 - - [06/Jul/2020 21:39:04] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 09:39:04 PM INFO:127.0.0.1 - - [06/Jul/2020 21:39:04] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 09:43:26 PM INFO:127.0.0.1 - - [06/Jul/2020 21:43:26] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 09:43:26 PM INFO:127.0.0.1 - - [06/Jul/2020 21:43:26] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 09:43:26 PM INFO:127.0.0.1 - - [06/Jul/2020 21:43:26] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 10:08:45 PM INFO:127.0.0.1 - - [06/Jul/2020 22:08:45] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 10:08:46 PM INFO:127.0.0.1 - - [06/Jul/2020 22:08:46] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 10:08:54 PM INFO:127.0.0.1 - - [06/Jul/2020 22:08:54] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 10:08:55 PM INFO:127.0.0.1 - - [06/Jul/2020 22:08:55] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 10:56:36 PM INFO:127.0.0.1 - - [06/Jul/2020 22:56:36] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 10:56:37 PM INFO:127.0.0.1 - - [06/Jul/2020 22:56:37] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 10:56:37 PM INFO:127.0.0.1 - - [06/Jul/2020 22:56:37] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 11:40:01 PM INFO:127.0.0.1 - - [06/Jul/2020 23:40:01] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/06/2020 11:40:01 PM INFO:127.0.0.1 - - [06/Jul/2020 23:40:01] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 12:05:00 AM INFO:127.0.0.1 - - [07/Jul/2020 00:05:00] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 12:05:01 AM INFO:127.0.0.1 - - [07/Jul/2020 00:05:01] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 12:05:01 AM INFO:127.0.0.1 - - [07/Jul/2020 00:05:01] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 12:05:08 AM INFO:127.0.0.1 - - [07/Jul/2020 00:05:08] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 12:05:08 AM INFO:127.0.0.1 - - [07/Jul/2020 00:05:08] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 12:50:55 AM INFO:127.0.0.1 - - [07/Jul/2020 00:50:55] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 12:50:55 AM INFO:127.0.0.1 - - [07/Jul/2020 00:50:55] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 12:50:55 AM INFO:127.0.0.1 - - [07/Jul/2020 00:50:55] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 01:23:25 AM INFO:127.0.0.1 - - [07/Jul/2020 01:23:25] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 01:23:25 AM INFO:127.0.0.1 - - [07/Jul/2020 01:23:25] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 01:40:04 AM INFO:127.0.0.1 - - [07/Jul/2020 01:40:04] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 01:40:04 AM INFO:127.0.0.1 - - [07/Jul/2020 01:40:04] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 01:40:05 AM INFO:127.0.0.1 - - [07/Jul/2020 01:40:05] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 01:40:36 AM INFO:127.0.0.1 - - [07/Jul/2020 01:40:36] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 01:40:37 AM INFO:127.0.0.1 - - [07/Jul/2020 01:40:37] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 01:40:37 AM INFO:127.0.0.1 - - [07/Jul/2020 01:40:37] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 01:42:27 AM INFO:127.0.0.1 - - [07/Jul/2020 01:42:27] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 01:42:27 AM INFO:127.0.0.1 - - [07/Jul/2020 01:42:27] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 01:42:28 AM INFO:127.0.0.1 - - [07/Jul/2020 01:42:28] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 01:42:28 AM INFO:127.0.0.1 - - [07/Jul/2020 01:42:28] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 01:42:29 AM INFO:127.0.0.1 - - [07/Jul/2020 01:42:29] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 01:42:29 AM INFO:127.0.0.1 - - [07/Jul/2020 01:42:29] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 01:42:30 AM INFO:127.0.0.1 - - [07/Jul/2020 01:42:30] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 01:42:30 AM INFO:127.0.0.1 - - [07/Jul/2020 01:42:30] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 01:42:30 AM INFO:127.0.0.1 - - [07/Jul/2020 01:42:30] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 01:42:31 AM INFO:127.0.0.1 - - [07/Jul/2020 01:42:31] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 01:42:31 AM INFO:127.0.0.1 - - [07/Jul/2020 01:42:31] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 01:42:31 AM INFO:127.0.0.1 - - [07/Jul/2020 01:42:31] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 01:42:32 AM INFO:127.0.0.1 - - [07/Jul/2020 01:42:32] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 01:42:32 AM INFO:127.0.0.1 - - [07/Jul/2020 01:42:32] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 01:42:32 AM INFO:127.0.0.1 - - [07/Jul/2020 01:42:32] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 01:42:33 AM INFO:127.0.0.1 - - [07/Jul/2020 01:42:33] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 01:42:33 AM INFO:127.0.0.1 - - [07/Jul/2020 01:42:33] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 01:42:33 AM INFO:127.0.0.1 - - [07/Jul/2020 01:42:33] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 01:42:34 AM INFO:127.0.0.1 - - [07/Jul/2020 01:42:34] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 01:42:34 AM INFO:127.0.0.1 - - [07/Jul/2020 01:42:34] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 06:49:41 AM INFO:Client has disconnected, removing from lists
+07/07/2020 02:24:52 PM INFO:Master server starting
+07/07/2020 02:24:52 PM INFO:Client Listener started.
+07/07/2020 02:24:52 PM INFO: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+07/07/2020 02:24:56 PM INFO:New Client connecting. ip: ('127.0.0.1', 55789) port: <socket.socket fd=1076, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 55789)>
+07/07/2020 02:24:56 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2987
+07/07/2020 02:24:56 PM INFO:Client Listener started.
+07/07/2020 02:25:06 PM INFO:127.0.0.1 - - [07/Jul/2020 14:25:06] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 02:25:06 PM INFO:127.0.0.1 - - [07/Jul/2020 14:25:06] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 02:25:06 PM INFO:127.0.0.1 - - [07/Jul/2020 14:25:06] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 02:25:08 PM INFO:127.0.0.1 - - [07/Jul/2020 14:25:08] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/07/2020 02:25:08 PM INFO:127.0.0.1 - - [07/Jul/2020 14:25:08] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 04:38:43 PM INFO:127.0.0.1 - - [07/Jul/2020 16:38:43] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 04:38:43 PM INFO:127.0.0.1 - - [07/Jul/2020 16:38:43] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 04:38:44 PM INFO:127.0.0.1 - - [07/Jul/2020 16:38:44] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 06:07:09 PM INFO:127.0.0.1 - - [07/Jul/2020 18:07:09] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 06:07:09 PM INFO:127.0.0.1 - - [07/Jul/2020 18:07:09] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 06:07:09 PM INFO:127.0.0.1 - - [07/Jul/2020 18:07:09] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 08:31:45 PM INFO:127.0.0.1 - - [07/Jul/2020 20:31:45] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 08:31:45 PM INFO:127.0.0.1 - - [07/Jul/2020 20:31:45] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 08:31:45 PM INFO:127.0.0.1 - - [07/Jul/2020 20:31:45] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 08:37:07 PM INFO:127.0.0.1 - - [07/Jul/2020 20:37:07] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 08:37:08 PM INFO:127.0.0.1 - - [07/Jul/2020 20:37:08] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 09:10:57 PM INFO:127.0.0.1 - - [07/Jul/2020 21:10:57] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 09:10:57 PM INFO:127.0.0.1 - - [07/Jul/2020 21:10:57] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 09:10:58 PM INFO:127.0.0.1 - - [07/Jul/2020 21:10:58] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 09:10:58 PM INFO:127.0.0.1 - - [07/Jul/2020 21:10:58] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 09:52:49 PM INFO:127.0.0.1 - - [07/Jul/2020 21:52:49] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 09:52:49 PM INFO:127.0.0.1 - - [07/Jul/2020 21:52:49] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/07/2020 10:57:01 PM INFO:Client has disconnected, removing from lists
+07/08/2020 09:42:49 PM INFO:Master server starting
+07/08/2020 09:42:49 PM INFO:Client Listener started.
+07/08/2020 09:42:49 PM INFO: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+07/08/2020 09:43:53 PM INFO:New Client connecting. ip: ('127.0.0.1', 53185) port: <socket.socket fd=948, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 53185)>
+07/08/2020 09:43:53 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2987
+07/08/2020 09:43:53 PM INFO:Client Listener started.
+07/08/2020 09:43:54 PM INFO:Client Listener started.
+07/08/2020 09:43:57 PM INFO:127.0.0.1 - - [08/Jul/2020 21:43:57] "[37mGET /login HTTP/1.1[0m" 200 -
+07/08/2020 09:43:57 PM INFO:127.0.0.1 - - [08/Jul/2020 21:43:57] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/08/2020 09:43:57 PM INFO:127.0.0.1 - - [08/Jul/2020 21:43:57] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+07/08/2020 09:44:01 PM INFO:127.0.0.1 - - [08/Jul/2020 21:44:01] "[32mPOST /login HTTP/1.1[0m" 302 -
+07/08/2020 09:44:01 PM INFO:127.0.0.1 - - [08/Jul/2020 21:44:01] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/08/2020 09:44:01 PM INFO:127.0.0.1 - - [08/Jul/2020 21:44:01] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/08/2020 09:44:02 PM INFO:127.0.0.1 - - [08/Jul/2020 21:44:02] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/08/2020 09:46:34 PM INFO:Starting file transfer to Ender5 Pro
+07/08/2020 09:46:36 PM INFO:127.0.0.1 - - [08/Jul/2020 21:46:36] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/08/2020 09:46:36 PM INFO:127.0.0.1 - - [08/Jul/2020 21:46:36] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/08/2020 09:46:37 PM INFO:127.0.0.1 - - [08/Jul/2020 21:46:37] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/08/2020 09:46:37 PM INFO:127.0.0.1 - - [08/Jul/2020 21:46:37] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/08/2020 10:06:47 PM INFO:127.0.0.1 - - [08/Jul/2020 22:06:47] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/08/2020 10:06:47 PM INFO:127.0.0.1 - - [08/Jul/2020 22:06:47] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/08/2020 10:23:02 PM INFO:127.0.0.1 - - [08/Jul/2020 22:23:02] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/08/2020 10:23:02 PM INFO:127.0.0.1 - - [08/Jul/2020 22:23:02] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/08/2020 10:23:02 PM INFO:127.0.0.1 - - [08/Jul/2020 22:23:02] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/08/2020 10:23:03 PM INFO:127.0.0.1 - - [08/Jul/2020 22:23:03] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/08/2020 10:23:03 PM INFO:127.0.0.1 - - [08/Jul/2020 22:23:03] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/08/2020 10:30:51 PM INFO:127.0.0.1 - - [08/Jul/2020 22:30:51] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/08/2020 10:30:51 PM INFO:127.0.0.1 - - [08/Jul/2020 22:30:51] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/08/2020 10:30:52 PM INFO:127.0.0.1 - - [08/Jul/2020 22:30:52] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/08/2020 10:30:52 PM INFO:127.0.0.1 - - [08/Jul/2020 22:30:52] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 12:09:57 AM INFO:127.0.0.1 - - [09/Jul/2020 00:09:57] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 12:09:57 AM INFO:127.0.0.1 - - [09/Jul/2020 00:09:57] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 12:09:57 AM INFO:127.0.0.1 - - [09/Jul/2020 00:09:57] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 12:09:58 AM INFO:127.0.0.1 - - [09/Jul/2020 00:09:58] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 12:39:51 AM INFO:127.0.0.1 - - [09/Jul/2020 00:39:51] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 12:39:51 AM INFO:127.0.0.1 - - [09/Jul/2020 00:39:51] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 12:39:52 AM INFO:127.0.0.1 - - [09/Jul/2020 00:39:52] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 12:39:52 AM INFO:127.0.0.1 - - [09/Jul/2020 00:39:52] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 12:42:03 AM INFO:127.0.0.1 - - [09/Jul/2020 00:42:03] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 12:42:03 AM INFO:127.0.0.1 - - [09/Jul/2020 00:42:03] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 12:42:05 AM INFO:127.0.0.1 - - [09/Jul/2020 00:42:05] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 12:42:05 AM INFO:127.0.0.1 - - [09/Jul/2020 00:42:05] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 12:42:06 AM INFO:127.0.0.1 - - [09/Jul/2020 00:42:06] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 12:42:06 AM INFO:127.0.0.1 - - [09/Jul/2020 00:42:06] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 12:42:13 AM INFO:127.0.0.1 - - [09/Jul/2020 00:42:13] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 12:42:13 AM INFO:127.0.0.1 - - [09/Jul/2020 00:42:13] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 12:46:43 AM INFO:127.0.0.1 - - [09/Jul/2020 00:46:43] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 12:46:43 AM INFO:127.0.0.1 - - [09/Jul/2020 00:46:43] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 12:46:43 AM INFO:127.0.0.1 - - [09/Jul/2020 00:46:43] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 12:46:44 AM INFO:127.0.0.1 - - [09/Jul/2020 00:46:44] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 12:46:44 AM INFO:127.0.0.1 - - [09/Jul/2020 00:46:44] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 12:46:44 AM INFO:127.0.0.1 - - [09/Jul/2020 00:46:44] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 12:46:44 AM INFO:127.0.0.1 - - [09/Jul/2020 00:46:44] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 12:46:44 AM INFO:127.0.0.1 - - [09/Jul/2020 00:46:44] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 12:46:45 AM INFO:127.0.0.1 - - [09/Jul/2020 00:46:45] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 12:46:45 AM INFO:127.0.0.1 - - [09/Jul/2020 00:46:45] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 12:46:45 AM INFO:127.0.0.1 - - [09/Jul/2020 00:46:45] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 12:46:46 AM INFO:127.0.0.1 - - [09/Jul/2020 00:46:46] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 12:46:46 AM INFO:127.0.0.1 - - [09/Jul/2020 00:46:46] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 12:46:46 AM INFO:127.0.0.1 - - [09/Jul/2020 00:46:46] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 12:46:46 AM INFO:127.0.0.1 - - [09/Jul/2020 00:46:46] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 12:50:34 AM INFO:Client has disconnected, removing from lists
+07/09/2020 01:42:19 PM INFO:Master server starting
+07/09/2020 01:42:19 PM INFO:Client Listener started.
+07/09/2020 01:42:19 PM INFO: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+07/09/2020 01:42:22 PM INFO:New Client connecting. ip: ('127.0.0.1', 57384) port: <socket.socket fd=784, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 57384)>
+07/09/2020 01:42:22 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2987
+07/09/2020 01:42:22 PM INFO:Client Listener started.
+07/09/2020 01:48:34 PM INFO:127.0.0.1 - - [09/Jul/2020 13:48:34] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 01:48:34 PM INFO:127.0.0.1 - - [09/Jul/2020 13:48:34] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 01:48:34 PM INFO:127.0.0.1 - - [09/Jul/2020 13:48:34] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 01:48:37 PM INFO:127.0.0.1 - - [09/Jul/2020 13:48:37] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/09/2020 01:48:37 PM INFO:127.0.0.1 - - [09/Jul/2020 13:48:37] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 01:48:42 PM INFO:Starting file transfer to Ender5 Pro
+07/09/2020 01:48:44 PM INFO:127.0.0.1 - - [09/Jul/2020 13:48:44] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/09/2020 01:48:44 PM INFO:127.0.0.1 - - [09/Jul/2020 13:48:44] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 01:49:18 PM INFO:127.0.0.1 - - [09/Jul/2020 13:49:18] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/09/2020 01:49:18 PM INFO:127.0.0.1 - - [09/Jul/2020 13:49:18] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 01:49:21 PM INFO:127.0.0.1 - - [09/Jul/2020 13:49:21] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/09/2020 01:49:21 PM INFO:127.0.0.1 - - [09/Jul/2020 13:49:21] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 01:49:33 PM INFO:127.0.0.1 - - [09/Jul/2020 13:49:33] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 01:49:34 PM INFO:127.0.0.1 - - [09/Jul/2020 13:49:34] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 01:49:34 PM INFO:127.0.0.1 - - [09/Jul/2020 13:49:34] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 02:02:02 PM INFO:127.0.0.1 - - [09/Jul/2020 14:02:02] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/09/2020 02:02:02 PM INFO:127.0.0.1 - - [09/Jul/2020 14:02:02] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 02:02:05 PM INFO:127.0.0.1 - - [09/Jul/2020 14:02:05] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 02:02:05 PM INFO:127.0.0.1 - - [09/Jul/2020 14:02:05] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 02:02:06 PM INFO:127.0.0.1 - - [09/Jul/2020 14:02:06] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 02:02:07 PM INFO:127.0.0.1 - - [09/Jul/2020 14:02:07] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 02:02:07 PM INFO:127.0.0.1 - - [09/Jul/2020 14:02:07] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 02:02:07 PM INFO:127.0.0.1 - - [09/Jul/2020 14:02:07] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 02:02:56 PM INFO:Client has disconnected, removing from lists
+07/09/2020 06:09:37 PM INFO:Master server starting
+07/09/2020 06:09:37 PM INFO:Client Listener started.
+07/09/2020 06:09:37 PM INFO: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+07/09/2020 06:09:38 PM INFO:New Client connecting. ip: ('127.0.0.1', 52173) port: <socket.socket fd=568, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 52173)>
+07/09/2020 06:09:38 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2987
+07/09/2020 06:09:38 PM INFO:Client Listener started.
+07/09/2020 06:10:28 PM INFO:127.0.0.1 - - [09/Jul/2020 18:10:28] "[37mGET /login HTTP/1.1[0m" 200 -
+07/09/2020 06:10:28 PM INFO:127.0.0.1 - - [09/Jul/2020 18:10:28] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/09/2020 06:10:31 PM INFO:127.0.0.1 - - [09/Jul/2020 18:10:31] "[32mPOST /login HTTP/1.1[0m" 302 -
+07/09/2020 06:10:31 PM INFO:127.0.0.1 - - [09/Jul/2020 18:10:31] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/09/2020 06:10:31 PM INFO:127.0.0.1 - - [09/Jul/2020 18:10:31] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/09/2020 06:10:33 PM INFO:127.0.0.1 - - [09/Jul/2020 18:10:33] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 06:10:37 PM INFO:127.0.0.1 - - [09/Jul/2020 18:10:37] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/09/2020 06:10:37 PM INFO:127.0.0.1 - - [09/Jul/2020 18:10:37] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 06:10:45 PM INFO:Client has disconnected, removing from lists
+07/09/2020 06:10:47 PM INFO:New Client connecting. ip: ('127.0.0.1', 52275) port: <socket.socket fd=1060, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 52275)>
+07/09/2020 06:10:47 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2988
+07/09/2020 06:10:47 PM INFO:Client Listener started.
+07/09/2020 06:10:52 PM INFO:127.0.0.1 - - [09/Jul/2020 18:10:52] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/09/2020 06:10:52 PM INFO:127.0.0.1 - - [09/Jul/2020 18:10:52] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 06:12:26 PM INFO:127.0.0.1 - - [09/Jul/2020 18:12:26] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 06:12:26 PM INFO:127.0.0.1 - - [09/Jul/2020 18:12:26] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 06:12:26 PM INFO:127.0.0.1 - - [09/Jul/2020 18:12:26] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 06:12:28 PM INFO:Client has disconnected, removing from lists
+07/09/2020 06:12:57 PM INFO:New Client connecting. ip: ('127.0.0.1', 52400) port: <socket.socket fd=968, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 52400)>
+07/09/2020 06:12:57 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2989
+07/09/2020 06:12:57 PM INFO:Client Listener started.
+07/09/2020 06:34:21 PM INFO:127.0.0.1 - - [09/Jul/2020 18:34:21] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 06:34:21 PM INFO:127.0.0.1 - - [09/Jul/2020 18:34:21] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 06:34:30 PM INFO:Starting file transfer to Ender5 Pro
+07/09/2020 06:34:32 PM INFO:127.0.0.1 - - [09/Jul/2020 18:34:32] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/09/2020 06:34:32 PM INFO:127.0.0.1 - - [09/Jul/2020 18:34:32] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 06:34:40 PM INFO:127.0.0.1 - - [09/Jul/2020 18:34:40] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/09/2020 06:34:40 PM INFO:127.0.0.1 - - [09/Jul/2020 18:34:40] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 08:50:17 PM INFO:127.0.0.1 - - [09/Jul/2020 20:50:17] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 08:50:18 PM INFO:127.0.0.1 - - [09/Jul/2020 20:50:18] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 08:50:18 PM INFO:127.0.0.1 - - [09/Jul/2020 20:50:18] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:19:17 PM INFO:127.0.0.1 - - [09/Jul/2020 21:19:17] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:19:18 PM INFO:127.0.0.1 - - [09/Jul/2020 21:19:18] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:19:18 PM INFO:127.0.0.1 - - [09/Jul/2020 21:19:18] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:19:20 PM INFO:127.0.0.1 - - [09/Jul/2020 21:19:20] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/09/2020 09:19:20 PM INFO:127.0.0.1 - - [09/Jul/2020 21:19:20] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:19:51 PM INFO:127.0.0.1 - - [09/Jul/2020 21:19:51] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/09/2020 09:19:51 PM INFO:127.0.0.1 - - [09/Jul/2020 21:19:51] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:19:53 PM INFO:127.0.0.1 - - [09/Jul/2020 21:19:53] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:19:54 PM INFO:127.0.0.1 - - [09/Jul/2020 21:19:54] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:20:01 PM INFO:127.0.0.1 - - [09/Jul/2020 21:20:01] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:20:01 PM INFO:127.0.0.1 - - [09/Jul/2020 21:20:01] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:20:01 PM INFO:127.0.0.1 - - [09/Jul/2020 21:20:01] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:20:01 PM INFO:127.0.0.1 - - [09/Jul/2020 21:20:01] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:20:02 PM INFO:127.0.0.1 - - [09/Jul/2020 21:20:02] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:20:02 PM INFO:127.0.0.1 - - [09/Jul/2020 21:20:02] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:20:02 PM INFO:127.0.0.1 - - [09/Jul/2020 21:20:02] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:20:02 PM INFO:127.0.0.1 - - [09/Jul/2020 21:20:02] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:20:03 PM INFO:127.0.0.1 - - [09/Jul/2020 21:20:03] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:20:03 PM INFO:127.0.0.1 - - [09/Jul/2020 21:20:03] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:20:03 PM INFO:127.0.0.1 - - [09/Jul/2020 21:20:03] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:20:13 PM INFO:127.0.0.1 - - [09/Jul/2020 21:20:13] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:20:13 PM INFO:127.0.0.1 - - [09/Jul/2020 21:20:13] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:20:16 PM INFO:127.0.0.1 - - [09/Jul/2020 21:20:16] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:20:16 PM INFO:127.0.0.1 - - [09/Jul/2020 21:20:16] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:20:17 PM INFO:127.0.0.1 - - [09/Jul/2020 21:20:17] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:20:17 PM INFO:127.0.0.1 - - [09/Jul/2020 21:20:17] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:20:21 PM INFO:127.0.0.1 - - [09/Jul/2020 21:20:21] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/09/2020 09:20:21 PM INFO:127.0.0.1 - - [09/Jul/2020 21:20:21] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:20:23 PM INFO:127.0.0.1 - - [09/Jul/2020 21:20:23] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:20:24 PM INFO:127.0.0.1 - - [09/Jul/2020 21:20:24] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:20:24 PM INFO:127.0.0.1 - - [09/Jul/2020 21:20:24] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:20:24 PM INFO:127.0.0.1 - - [09/Jul/2020 21:20:24] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:22:44 PM INFO:Client has disconnected, removing from lists
+07/09/2020 09:22:47 PM INFO:New Client connecting. ip: ('127.0.0.1', 59722) port: <socket.socket fd=1336, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 59722)>
+07/09/2020 09:22:47 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2990
+07/09/2020 09:22:47 PM INFO:Client Listener started.
+07/09/2020 09:22:51 PM INFO:127.0.0.1 - - [09/Jul/2020 21:22:51] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:22:51 PM INFO:127.0.0.1 - - [09/Jul/2020 21:22:51] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:22:52 PM INFO:127.0.0.1 - - [09/Jul/2020 21:22:52] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:22:53 PM INFO:127.0.0.1 - - [09/Jul/2020 21:22:53] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:22:55 PM INFO:127.0.0.1 - - [09/Jul/2020 21:22:55] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/09/2020 09:22:55 PM INFO:127.0.0.1 - - [09/Jul/2020 21:22:55] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:26:52 PM INFO:127.0.0.1 - - [09/Jul/2020 21:26:52] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:26:52 PM INFO:127.0.0.1 - - [09/Jul/2020 21:26:52] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:26:53 PM INFO:127.0.0.1 - - [09/Jul/2020 21:26:53] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/09/2020 09:26:53 PM INFO:127.0.0.1 - - [09/Jul/2020 21:26:53] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:27:26 PM INFO:127.0.0.1 - - [09/Jul/2020 21:27:26] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:27:26 PM INFO:127.0.0.1 - - [09/Jul/2020 21:27:26] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:27:26 PM INFO:127.0.0.1 - - [09/Jul/2020 21:27:26] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:27:26 PM INFO:127.0.0.1 - - [09/Jul/2020 21:27:26] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:27:27 PM INFO:127.0.0.1 - - [09/Jul/2020 21:27:27] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:27:27 PM INFO:127.0.0.1 - - [09/Jul/2020 21:27:27] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:27:28 PM INFO:127.0.0.1 - - [09/Jul/2020 21:27:28] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:27:31 PM INFO:127.0.0.1 - - [09/Jul/2020 21:27:31] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/09/2020 09:27:31 PM INFO:127.0.0.1 - - [09/Jul/2020 21:27:31] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:27:32 PM INFO:127.0.0.1 - - [09/Jul/2020 21:27:32] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/09/2020 09:27:32 PM INFO:127.0.0.1 - - [09/Jul/2020 21:27:32] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:27:33 PM INFO:127.0.0.1 - - [09/Jul/2020 21:27:33] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:27:33 PM INFO:127.0.0.1 - - [09/Jul/2020 21:27:33] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:27:33 PM INFO:127.0.0.1 - - [09/Jul/2020 21:27:33] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:27:34 PM INFO:127.0.0.1 - - [09/Jul/2020 21:27:34] "[37mGET /dashboard HTTP/1.1[0m" 200 -
+07/09/2020 09:27:34 PM INFO:127.0.0.1 - - [09/Jul/2020 21:27:34] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+07/09/2020 09:27:35 PM INFO:127.0.0.1 - - [09/Jul/2020 21:27:35] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:27:37 PM INFO:Client has disconnected, removing from lists
+07/09/2020 09:27:40 PM INFO:New Client connecting. ip: ('127.0.0.1', 60113) port: <socket.socket fd=1452, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 2986), raddr=('127.0.0.1', 60113)>
+07/09/2020 09:27:40 PM INFO:Starting a client handler on IP:0.0.0.0 Port:2991
+07/09/2020 09:27:40 PM INFO:Client Listener started.
+07/09/2020 09:27:46 PM INFO:127.0.0.1 - - [09/Jul/2020 21:27:46] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:27:47 PM INFO:127.0.0.1 - - [09/Jul/2020 21:27:47] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 09:27:48 PM INFO:127.0.0.1 - - [09/Jul/2020 21:27:48] "[32mPOST /printer/0 HTTP/1.1[0m" 302 -
+07/09/2020 09:27:48 PM INFO:127.0.0.1 - - [09/Jul/2020 21:27:48] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 11:36:42 PM INFO:127.0.0.1 - - [09/Jul/2020 23:36:42] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 11:36:42 PM INFO:127.0.0.1 - - [09/Jul/2020 23:36:42] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/09/2020 11:36:42 PM INFO:127.0.0.1 - - [09/Jul/2020 23:36:42] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/10/2020 12:17:14 AM INFO:127.0.0.1 - - [10/Jul/2020 00:17:14] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/10/2020 12:17:15 AM INFO:127.0.0.1 - - [10/Jul/2020 00:17:15] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/10/2020 12:17:15 AM INFO:127.0.0.1 - - [10/Jul/2020 00:17:15] "[37mGET /printer/0 HTTP/1.1[0m" 200 -
+07/10/2020 12:28:13 AM INFO:Client has disconnected, removing from lists
