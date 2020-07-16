@@ -47,7 +47,7 @@ def logout():
 @app.route('/printer/<id>', methods=['POST','GET'])
 @login_required
 def printer(id):
-    server.CLIENTS[int(id)].send("status") #rework this to not be text and be an actual command
+    #server.CLIENTS[int(id)].send("status") #rework this to not be text and be an actual command
     if request.method == "POST":
         print(request.form)
         if request.form.get("stop") is not None:
@@ -70,6 +70,7 @@ def printer(id):
                 print("tranfering this file: ",app.config['UPLOAD_FOLDER']+"\\"+file.filename)
                 print(server.CLIENTS[int(id)].fileTransfer(app.config['UPLOAD_FOLDER']+"\\"+file.filename))
         return redirect("/printer/{0}".format(id))
+    server.CLIENTS[int(id)].send("status") #rework this to not be text and be an actual command
     return render_template('printer.html.jinja', printer=server.CLIENTS[int(id)])
 
 # @app.route('/printer')

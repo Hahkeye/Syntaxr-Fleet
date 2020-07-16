@@ -84,7 +84,7 @@ class Printer(object):
                         print("Starting Print")
                         target = task[11:]
                         print(target)
-                        print(self.printLink.start("{0}\\prints\\{1}".format(os.getcwd(), target)))#change to prints file "prints\{0}".format(target)
+                        print(self.printLink.start("{0}/prints/{1}".format(os.getcwd(), target)))#change to prints file "prints\{0}".format(target)
                     elif task[:6] == "status":
                         self.status()
                     elif task[:5] == "pause":
