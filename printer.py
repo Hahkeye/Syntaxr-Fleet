@@ -12,7 +12,7 @@ class Printer():
         self.printing = False
         self.alive = False
         self.needCommand = True
-        self.lineNumber = 1
+        self.lineNumber = 0
         self.totalLines = 0
         self.connection = None
         self.bedTemp = 0
@@ -40,7 +40,9 @@ class Printer():
     def execute(self, command):
         if self.printing:
             self.printQueue.appendleft(command)
+            print("addding to queue")
         else:
+            print("Executing imediatly: ",command)
             self._send(command)
 
     def load(self, file):
@@ -79,15 +81,23 @@ class Printer():
 
     def stop(self): #fix this stuff
         if self.printing or self.printingPause:
-            self.execute("M0")
+            self.printing = False
+            
+            print("stopping the pring job")
+            self.execute("M0 Stopping Print")
+            print("stopping command sent")
             self.execute("M77")
+            print("Stopping timer")
             self.execute("M109 S0")
             self.execute("M190 S0")
             self.execute("M84")
             self.execute("G28 X0 Y0")
-            self.printing = False
-            self.printingThread.join()
-            self.printingThread = None
+            print("homing")
+            self.execute("M108")
+            self.lineNumber=0
+            #self.printingThread.join()
+            print("ending print thread")
+            #self.printingThread = None
 
     def resume(self):
         if self.printingPause:

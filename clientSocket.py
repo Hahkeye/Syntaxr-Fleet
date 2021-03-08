@@ -24,7 +24,7 @@ class talk(object):
     def getFile(self, dat):
         name = dat[12:].split("\\")
         name = name[len(name)-1]
-        f = open("./prints/"+name,"wb")
+        f = open("./prints/"+name, "wb")
         while True:
             l = self.socket.recv(1024)
             try:

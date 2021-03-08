@@ -22,7 +22,7 @@
   </head>
   <body>
     <div class="container">
-      <h1>Printers                    Busy: {{ clients.__len__()-aviable.__len__() }} Free: {{ aviable.__len__() }}</h1>
+      <h1>Printers                    Total: {{ (clients|count) }} </h1>
       <button class="button" onclick="window.location.reload();">refresh</button>
       <hr>
       {% for client in clients %}

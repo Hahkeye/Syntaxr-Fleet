@@ -2,14 +2,14 @@
 import time,os,sys,printer,clientSocket,json
 
 # IP and Port config
-HOST = 'localhost'
+HOST = '192.168.1.183'
 PORT = 2986
 #
 #Printer Connection Config
-# PPORT = '/dev/ttyACM0'
-# BUAD = 115200
-PPORT = 'COM4'
+PPORT = '/dev/ttyUSB0'
 BUAD = 115200
+#PPORT = 'COM4'
+#BUAD = 115200
 #
 
 
@@ -63,6 +63,10 @@ class Printer(object):
         
 
     def main(self):
+        if not os.path.exists("dat.a"):
+            os.mkdir("prints")
+            f = open("dat.a","w")
+            f.close()
         while True: #make sure it cant do anything with out having a connecto to the host and the printer
             try:
                 if not self.printLink.alive: self.printLink.connect()
@@ -74,7 +78,7 @@ class Printer(object):
                 print("Failed to connect to host, please make sure host is runing")
             time.sleep(3)
 
-            print("Tasko Master: ", self.taskMaster.alive, " PrinEEt link:", self.printLink.alive)
+            print("Task Master: ", self.taskMaster.alive, " Print link:", self.printLink.alive)
             while self.taskMaster.alive and self.printLink.alive:
                 task = self.taskMaster.getMsg()#rework getmsg 
                 if task is not None:

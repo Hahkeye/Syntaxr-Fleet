@@ -102,7 +102,7 @@ def _clientHandler(host, port, details):#Might need to thread out both listner a
             except:
                 _kill(c)
                 break
-            print("data from {0} recieved: {1}".format(c,data))
+            #print("data from {0} recieved: {1}".format(c,data))
             if data[:6] == "status":                 # rework status to include every thing
                 stat = json.loads(data[7:])
                 #print("status recieved:", stat[0])
@@ -114,7 +114,8 @@ def _clientHandler(host, port, details):#Might need to thread out both listner a
                 #print("Progress: ", stat[0][2])
                 c.gcodes = stat[1]
                 if c.status[0] is False:
-                    AVIABLE.append(c)
+                    #AVIABLE.append(c)
+                    print("KEKW")
                 
     except:
         _kill(c)
@@ -133,11 +134,11 @@ def _kill(client):
     CLIENTS.remove(client)
 
 
-    try:  
-        AVIABLE.index(client)
-        AVIABLE.remove(client)
-    except:
-        logging.warning("Failed to disconnect a client and remove it from aviable list.")
+    # try:  
+    #     AVIABLE.index(client)
+    #     AVIABLE.remove(client)
+    # except:
+    #     logging.warning("Failed to disconnect a client and remove it from aviable list.")
 def _refresh():
     #logging.info("refreshing listernet thread because of a connection.")
     LISTNER = threading.Thread(name='listner', target=_listner, daemon=True)

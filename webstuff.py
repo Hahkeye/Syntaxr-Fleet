@@ -52,6 +52,7 @@ def printer(id):
         print(request.form)
         if request.form.get("stop") is not None:
             server.CLIENTS[int(id)].send("stop")
+            redirect("/printer/{0}".format(id)) 
         elif request.form.get("resume") is not None:
             server.CLIENTS[int(id)].send("resume")
         elif request.form.get("pause") is not None:
